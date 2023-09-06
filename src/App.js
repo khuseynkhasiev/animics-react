@@ -1,24 +1,11 @@
-import logo from './logo.svg';
+import './vendor/normalize.css';
 import './App.css';
+import './vendor/fonts/font.css';
+import Poster from "./pages/posterPage/PosterPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Poster />
   );
 }
 
