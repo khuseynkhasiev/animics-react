@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'SPACE-ARMOR';
+    font-family: 'Toba';
     font-weight: 400;
-    src: local('SPACE-ARMOR'),
-    url(spaceArmor.otf) format('opentype');
+    src: local('ComiscToba'),
+    url('ComicsToba.otf') format('opentype'),
+    url('ComicsToba.ttf') format('truetype');
 }

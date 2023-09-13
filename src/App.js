@@ -2,10 +2,13 @@ import './vendor/normalize.css';
 import './App.css';
 import './vendor/fonts/font.css';
 import Poster from "./pages/posterPage/PosterPage";
+import MainPage from "./pages/mainPage/MainPage";
 
 function App() {
   return (
-    <Poster />
+      <div  style={{backgroundColor: "black"}}>
+        <MainPage />
+      </div>
   );
 }
 
