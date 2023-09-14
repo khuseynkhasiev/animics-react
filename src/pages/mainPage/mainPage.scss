@@ -12,6 +12,17 @@
     background-size: cover;
     position: absolute;
   }
+  &__crag{
+    width: 776px;
+    height: 366px;
+    left: 309px;
+    top: 545px;
+    background-image: url("../../image/crag.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 2;
+  }
   &__bgCenter{
     width: 100%;
     height: 134px;
@@ -66,17 +77,17 @@
     color: #d21717;
   }
 }
-
-.main{
-  position: relative;
-  height: calc(1465px * 2 - 70px - 161px + 134px);
-  padding: 235px 100px 0 100px;
-  box-sizing: border-box;
+.title{
+  position: absolute;
+  min-height: 280px;
+  top: 275px;
+  left: 100px;
+  animation: slideTitle 3s ease forwards;
   &__title{
     color: #D8D8DF;
     text-align: center;
     font-family: Toba, Inter, sans-serif;
-    font-size: 300px;
+    font-size: 290px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -94,6 +105,49 @@
     text-transform: uppercase;
     margin: 0;
   }
+}
+@keyframes slideTitle {
+  0% {
+    top: 275px;
+  }
+  100% {
+    top: 380px;
+  }
+}
+
+.main{
+  position: relative;
+  height: calc(1465px * 2 - 70px - 161px + 134px);
+  padding: 185px 100px 0 100px;
+  box-sizing: border-box;
+/*  &__titleBlock{
+    position: absolute;
+    min-height: 280px;
+    top: 275px;
+    left: 100px;
+  }*/
+/*  &__title{
+    color: #D8D8DF;
+    text-align: center;
+    font-family: Toba, Inter, sans-serif;
+    font-size: 290px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+  }
+  &__subtitle{
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat, Inter, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin: 0;
+  }*/
   &__text{
     color: #FFF;
     font-family: Montserrat, Inter, sans-serif;
@@ -124,13 +178,13 @@
     font-size: 40px;
   }
   &__info{
-    padding-top: 515px;
+    padding-top: 920px;
     box-sizing: border-box;
   }
   &__infoContainer{
     display: flex;
     column-gap: 10px;
-    padding-top: 100px;
+    padding-top: 250px;
     justify-content: center;
   }
   &__infoTitle{
@@ -175,6 +229,7 @@
     font-weight: 400;
     line-height: normal;
     text-transform: lowercase;
+    text-decoration: none;
   }
   &__text{
     margin: 50px 0 0 0;
