@@ -5,3 +5,16 @@
     url('ComicsToba.otf') format('opentype'),
     url('ComicsToba.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    src: local('Montserrat-Light'),
+    url('Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: local('Montserrat-Medium'),
+    url('Montserrat-Medium.ttf') format('truetype');
+}
+

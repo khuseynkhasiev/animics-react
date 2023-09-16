@@ -1,5 +1,11 @@
 import './mainPage.scss';
+import {useNavigate} from "react-router";
 export default function MainPage() {
+    const navigate = useNavigate();
+
+    const handleClickRegisterPage = () => {
+        navigate('/register');
+    }
     return (
         <div style={{backgroundColor: "black"}}>
             <div className="mainPage">
@@ -10,7 +16,7 @@ export default function MainPage() {
                 <header className="header">
                     <nav className="header__nav">
                         <ul className="header__list">
-                            <li className="header__item">
+                            <li className="header__item" onClick={handleClickRegisterPage}>
                                 Регистрация
                             </li>
                             <li className="header__item">
