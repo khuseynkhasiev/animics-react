@@ -1,13 +1,67 @@
 import './registerFinishPage.scss';
 import {useNavigate} from "react-router";
-export default function RegisterFinishPage() {
-    const navigate = useNavigate();
+import {useEffect, useState} from "react";
+export default function RegisterFinishPage({ handleRegister }) {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear() - 14;
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
 
+    const navigate = useNavigate();
+    const [date, setDate] = useState('');
+    const [agreement, setAgreement] = useState(false);
+    const [consent, setConsent] = useState(false);
+
+    const [errorTextActive, setErrorTextActive] = useState(false);
+    const [errorTextDateActive, setErrorTextDateActive] = useState(false);
+
+    useEffect(() => {
+        const year = date.slice(0, 4);
+        const month = date.slice(6,7);
+        const day = date.slice(8,10);
+
+        // проверка возраста пользователя 14+
+        year > currentYear ? setErrorTextDateActive(true)
+            : month > currentMonth ? setErrorTextDateActive(true)
+                : day > currentDay ? setErrorTextDateActive(true)
+                    : setErrorTextDateActive(false)
+    }, [date])
     const handleBackPageClick = () => {
         navigate('/register-password');
     }
-    const handleMainPageClick = () => {
-        navigate('/');
+
+    const handleChangeValueInputDate = (e) => {
+        setDate(e.target.value);
+    }
+
+    const handleChangeValueInputAgreement = (e) => {
+        setAgreement(e.target.checked)
+    }
+    const handleChangeValueInputConsent = (e) => {
+        setConsent(e.target.checked)
+    }
+
+    function addValueRegUser () {
+        const user = JSON.parse(localStorage.getItem('RegUser'));
+        localStorage.setItem('RegUser', JSON.stringify({...user, date, agreement, consent}));
+    }
+
+    const handleSubmitForm = (e) => {
+        e.preventDefault();
+        if(agreement){
+            setErrorTextActive(false);
+            if(!errorTextDateActive) {
+                addValueRegUser();
+                const user = JSON.parse(localStorage.getItem('RegUser'));
+                handleRegister(user);
+                navigate('/');
+                setErrorTextActive(false);
+                localStorage.removeItem('RegUser');
+            }
+        } else {
+            setErrorTextActive(true);
+        }
+
     }
     return (
         <div className='registerFinishPage'>
@@ -16,8 +70,7 @@ export default function RegisterFinishPage() {
                     <h2 className='registerFinishPage__title'>Финиш!</h2>
                     <p className='registerFinishPage__subtitle'>Вы это сделали!</p>
                     <div className="registerFinishPage__flexBox">
-                        <form className='registerFinishPage__form' action="" method="POST">
-                            <p className='registerFinishPage__text'>(следующие поля не являются обязательными к заполнению)</p>
+                        <form className='registerFinishPage__form' id='registerFinishPage' action="" method="POST" onSubmit={handleSubmitForm}>
                             <p className='registerFinishPage__titleText'>Когда Вы родились?</p>
                             <input
                                 className='registerFinishPage__input'
@@ -25,6 +78,8 @@ export default function RegisterFinishPage() {
                                 id='registerFinishPage__date'
                                 name='date'
                                 placeholder='дд.мм.гггг.'
+                                onChange={handleChangeValueInputDate}
+                                required
                             />
                             <div className="registerFinishPage__inputContainer">
                                 <input
@@ -32,7 +87,8 @@ export default function RegisterFinishPage() {
                                     type="checkbox"
                                     name="agreement"
                                     id='agreement'
-                                    value="yes"/>
+                                    onChange={handleChangeValueInputAgreement}
+                                />
                                 <label className='registerFinishPage__labelCheckbox' htmlFor='agreement'>какое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные для чего то тамкакое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные для чего то тамкакое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные </label>
                             </div>
                             <div className="registerFinishPage__inputContainer">
@@ -41,9 +97,12 @@ export default function RegisterFinishPage() {
                                     type="checkbox"
                                     name="consent"
                                     id='consent'
-                                    value="yes"/>
+                                    onChange={handleChangeValueInputConsent}
+                                />
                                 <label className='registerFinishPage__labelCheckbox' htmlFor='consent'>даю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом роде</label>
                             </div>
+                            {errorTextActive && <p className='registerFinishPage__errorText'>Необходимо принять пользовательское соглашение!</p>}
+                            {errorTextDateActive && <p className='registerFinishPage__errorText'>Вам должно быть 14+ лет</p>}
                         </form>
                         <div className="registerFinishPage__qrBlock">
                             <div className='registerFinishPage__qrBlockBg'></div>
@@ -60,7 +119,7 @@ export default function RegisterFinishPage() {
                         <button
                             className='registerFinishPage__submit'
                             type='submit'
-                            onClick={handleMainPageClick}
+                            form='registerFinishPage'
                         >Завершить</button>
                     </div>
                     <div className='registerFinishPage__footer'></div>

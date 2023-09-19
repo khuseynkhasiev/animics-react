@@ -6,6 +6,9 @@ export default function MainPage() {
     const handleClickRegisterPage = () => {
         navigate('/register');
     }
+    const handleClickFeedbackPage = () => {
+        navigate('/feedback');
+    }
     return (
         <div style={{backgroundColor: "black"}}>
             <div className="mainPage">
@@ -19,7 +22,7 @@ export default function MainPage() {
                             <li className="header__item" onClick={handleClickRegisterPage}>
                                 Регистрация
                             </li>
-                            <li className="header__item">
+                            <li className="header__item" onClick={handleClickFeedbackPage}>
                                 Обратная связь
                             </li>
                             <li className="header__item">

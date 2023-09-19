@@ -1,21 +1,37 @@
 import './registerPage.scss';
 import {useNavigate} from "react-router";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 export default function RegisterPage() {
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
-
+    const [user, setUser] = useState({
+        name: '',
+        surname: '',
+        login: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        consent: false,
+        agreement: false,
+    });
     const handleChangeInput = (e) => {
         const {name, value} = e.target;
         setUser({...user, [name]:value });
     }
     const handleMainPageClick = () => {
         navigate('/');
+        localStorage.removeItem('RegUser');
     }
     const handleNextPageClick = (e) => {
         e.preventDefault();
+        localStorage.setItem('RegUser', JSON.stringify(user));
         navigate('/register-password');
     }
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('RegUser'))
+        if (user !== null || undefined) {
+            setUser(user);
+        }
+    }, [])
     return (
         <div className='registerPage'>
             <div className='registerPage__container'>
@@ -31,6 +47,7 @@ export default function RegisterPage() {
                                 name="name"
                                 id='registerPage__name'
                                 placeholder='Имя...'
+                                value={user.name}
                                 required
                             />
                             <input
@@ -40,6 +57,7 @@ export default function RegisterPage() {
                                 name="surname"
                                 id='registerPage__surname'
                                 placeholder='Фамилия...'
+                                value={user.surname}
                                 required
                             />
                         </div>
@@ -51,6 +69,7 @@ export default function RegisterPage() {
                             name="login"
                             id='registerPage__login'
                             placeholder='логин'
+                            value={user.login}
                             required
                         />
                         <p className='registerPage__titleText'>Почта</p>
@@ -61,6 +80,7 @@ export default function RegisterPage() {
                             name="email"
                             id='registerPage__email'
                             placeholder='email'
+                            value={user.email}
                             required
                         />
                         <div className='registerPage__btnContainer'>
