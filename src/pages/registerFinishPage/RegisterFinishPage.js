@@ -16,15 +16,29 @@ export default function RegisterFinishPage({ handleRegister }) {
     const [errorTextDateActive, setErrorTextDateActive] = useState(false);
 
     useEffect(() => {
-        const year = date.slice(0, 4);
-        const month = date.slice(6,7);
-        const day = date.slice(8,10);
+        const year = +date.slice(0, 4);
+        const month = +date.slice(6,7);
+        const day = +date.slice(8,10);
 
-        // проверка возраста пользователя 14+
-        year > currentYear ? setErrorTextDateActive(true)
-            : month > currentMonth ? setErrorTextDateActive(true)
-                : day > currentDay ? setErrorTextDateActive(true)
-                    : setErrorTextDateActive(false)
+        if (year > currentYear ) {
+            setErrorTextDateActive(true);
+        } else if(year < currentYear) {
+            setErrorTextDateActive(false);
+        } else if(year === currentYear) {
+            if(month > currentMonth) {
+                setErrorTextDateActive(true);
+            } else if(month < currentMonth) {
+                setErrorTextDateActive(false);
+            } else if(month === currentMonth) {
+                if(day > currentDay) {
+                    setErrorTextDateActive(true);
+                } else if(day < currentDay){
+                    setErrorTextDateActive(false);
+                } else if(day === currentDay) {
+                    setErrorTextDateActive(false);
+                }
+            }
+        }
     }, [date])
     const handleBackPageClick = () => {
         navigate('/register-password');

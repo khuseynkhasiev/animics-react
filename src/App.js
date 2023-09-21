@@ -16,7 +16,8 @@ function App() {
         return api.register(user)
             .then((data) => console.log(data))
             .catch((err) => {
-                console.log(`Ошибка: ${err.status}`);
+                console.log(`Ошибка: ${err}`);
+                console.log(`Ошибка: ${err.json().message}`);
             })
     }
   return (

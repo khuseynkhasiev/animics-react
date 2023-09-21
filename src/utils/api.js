@@ -1,7 +1,7 @@
 const BASE_URL = 'https://animics.ru/api';
 
 const getResponse = (res) => {
-    return res.ok? res.json() : Promise.reject(res);
+    return res.ok? res.json() : res.json().message;
 }
 const register = ({
     agreement,

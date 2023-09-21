@@ -1,7 +1,10 @@
 import './mainPage.scss';
 import {useNavigate} from "react-router";
+import PopupQR from "../../components/popupQR/PopupQR";
+import {useState} from "react";
 export default function MainPage() {
     const navigate = useNavigate();
+    const [popupQrActive, setPopupQrActive] = useState(false);
 
     const handleClickRegisterPage = () => {
         navigate('/register');
@@ -9,11 +12,17 @@ export default function MainPage() {
     const handleClickFeedbackPage = () => {
         navigate('/feedback');
     }
+
+    const handleOpenPopupQR = () => {
+        setPopupQrActive(true);
+    }
+    const handleExitPopupQR = () => {
+        setPopupQrActive(false);
+    }
     return (
-        <div style={{backgroundColor: "black"}}>
+        <>
             <div className="mainPage">
                 <div className="mainPage__bgOne"></div>
-                <div className="mainPage__crag"></div>
                 <div className="mainPage__bgCenter"></div>
                 <div className="mainPage__bgTwo"></div>
                 <header className="header">
@@ -28,7 +37,7 @@ export default function MainPage() {
                             <li className="header__item">
                                 Донат
                             </li>
-                            <li className="header__item">
+                            <li className="header__item" onClick={handleOpenPopupQR}>
                                 QR-код
                             </li>
                         </ul>
@@ -72,6 +81,7 @@ export default function MainPage() {
                     </p>
                 </footer>
             </div>
-        </div>
+            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
+        </>
     );
 }

@@ -1,5 +1,4 @@
 .mainPage{
-  max-width: 1440px;
   width: 100%;
   height: 3064px;
   margin: auto;
@@ -12,17 +11,18 @@
     background-size: cover;
     position: absolute;
   }
-  &__crag{
-    width: 776px;
-    height: 366px;
-    left: 309px;
-    top: 545px;
+/*  &__crag{
+    width: 40vw;
+    height: 25vh;
+    left: 50%;
+    top: 30%;
     background-image: url("../../image/crag.png");
     background-repeat: no-repeat;
-    background-size: cover;
     position: absolute;
     z-index: 2;
-  }
+    background-size: cover;
+    transform: translateX(-50%);
+  }*/
   &__bgCenter{
     width: 100%;
     height: 134px;
@@ -81,7 +81,8 @@
   position: absolute;
   min-height: 280px;
   top: 275px;
-  left: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   animation: slideTitle 3s ease forwards;
   &__title{
     color: #D8D8DF;
