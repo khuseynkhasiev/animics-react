@@ -4,25 +4,15 @@
   margin: auto;
   position: relative;
   &__bgOne{
-    background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-one.png'), lightgray 50%;
+    background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-one.gif'), lightgray 50%;
     height: 1465px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
+    background-position-x: center;
   }
-/*  &__crag{
-    width: 40vw;
-    height: 25vh;
-    left: 50%;
-    top: 30%;
-    background-image: url("../../image/crag.png");
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: 2;
-    background-size: cover;
-    transform: translateX(-50%);
-  }*/
+
   &__bgCenter{
     width: 100%;
     height: 134px;
@@ -31,50 +21,14 @@
     position: absolute;
   }
   &__bgTwo{
-    background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-two.png'), lightgray 50%;
+    background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-two.gif'), lightgray 50%;
     height: 1465px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
     top: calc(1465px + 134px);
-  }
-}
-.header{
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.10);
-  backdrop-filter: blur(7.5px);
-  &__nav{
-    width: 100%;
-  }
-  &__list{
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    display: flex;
-    column-gap: 100px;
-    justify-content: center;
-  }
-  &__item{
-    color: #FFF;
-    text-align: center;
-    font-family: Montserrat, Arial, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    font-variant: small-caps;
-    cursor: pointer;
-    transition: color 0.5s ease;
-  }
-  &__item:hover{
-    color: #d21717;
+    background-position-x: center;
   }
 }
 .title{
@@ -93,6 +47,15 @@
     font-weight: 400;
     line-height: normal;
     margin: 0;
+    @media screen and (max-width: 1280px){
+      font-size: 220px;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 150px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 55px;
+    }
   }
   &__subtitle{
     color: #FFF;
@@ -105,6 +68,14 @@
     letter-spacing: 12px;
     text-transform: uppercase;
     margin: 0;
+    @media screen and (max-width: 1280px){
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 14px;
+      letter-spacing: 5px;
+    }
   }
 }
 @keyframes slideTitle {
@@ -121,34 +92,13 @@
   height: calc(1465px * 2 - 70px - 161px + 134px);
   padding: 185px 100px 0 100px;
   box-sizing: border-box;
-/*  &__titleBlock{
-    position: absolute;
-    min-height: 280px;
-    top: 275px;
-    left: 100px;
-  }*/
-/*  &__title{
-    color: #D8D8DF;
-    text-align: center;
-    font-family: Toba, Inter, sans-serif;
-    font-size: 290px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
+  @media screen and (max-width: 1024px){
+    padding: 185px 70px 0 70px;
   }
-  &__subtitle{
-    color: #FFF;
-    text-align: center;
-    font-family: Montserrat, Inter, sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 12px;
-    text-transform: uppercase;
-    margin: 0;
-  }*/
+  @media screen and (max-width: 767px){
+    padding: 30px 10px 0 10px;
+    height: 2650px;
+  }
   &__text{
     color: #FFF;
     font-family: Montserrat, Inter, sans-serif;
@@ -158,6 +108,15 @@
     line-height: normal;
     font-variant: small-caps;
     margin: 0;
+    @media screen and (max-width: 1280px){
+      font-size: 30px;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 26px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 16px;
+    }
   }
   &__textRigthBlock{
     display: flex;
@@ -177,16 +136,33 @@
     max-width: 962px;
     text-align: right;
     font-size: 40px;
+    @media screen and (max-width: 1280px){
+      font-size: 36px;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 32px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 24px;
+    }
   }
   &__info{
     padding-top: 920px;
     box-sizing: border-box;
+    @media screen and (max-width: 767px){
+      padding-top: 700px;
+    }
   }
   &__infoContainer{
     display: flex;
     column-gap: 10px;
     padding-top: 250px;
-    justify-content: center;
+    justify-content: space-evenly;
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      row-gap: 20px;
+      align-items: center;
+    }
   }
   &__infoTitle{
     color: #D0D0D0;
@@ -199,9 +175,25 @@
     max-width: 750px;
     width: 100%;
     margin: 0;
+    @media screen and (max-width: 1280px){
+      font-size: 60px;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 45px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 30px;
+      text-align: center;
+    }
   }
   &__infoTitle_type_size{
     font-size: 128px;
+    @media screen and (max-width: 1279px){
+      font-size: 100px;
+    }
+    @media screen and (max-width: 1024px){
+      font-size: 80px;
+    }
   }
   &__qr{
     width: 502px;
@@ -209,37 +201,10 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position-y: center;
-  }
-}
-.footer{
-  position: relative;
-  padding: 30px 105px;
-  &__list{
-    padding-left: 0;
-    list-style: none;
-    column-gap: 100px;
-    display: flex;
-    margin: 0;
-    justify-content: space-between;
-  }
-  &__link{
-    color: #FFF;
-    font-family: Montserrat, Inter, sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: lowercase;
-    text-decoration: none;
-  }
-  &__text{
-    margin: 50px 0 0 0;
-    color: rgba(255, 255, 255, 0.50);
-    font-family: Montserrat, Inter, sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    font-variant: small-caps;
+    height: 502px;
+    @media screen and (max-width: 767px){
+      width: 280px;
+      height: 280px;
+    }
   }
 }

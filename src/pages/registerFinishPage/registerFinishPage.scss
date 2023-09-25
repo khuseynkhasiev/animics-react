@@ -29,10 +29,29 @@
 
     padding: 34px 50px 20px 30px;
     box-sizing: border-box;
+    @media screen and (max-width: 1439px){
+      max-width: 1200px;
+    }
+    @media screen and (max-width: 1279px){
+      max-width: 1000px;
+    }
+    @media screen and (max-width: 1023px){
+      max-width: 750px;
+      padding: 10px 20px;
+    }
+    @media screen and (max-width: 767px){
+      max-width: 310px;
+      padding: 5px;
+    }
   }
   &__form{
     max-width: 643px;
     width: 100%;
+    @media screen and (max-width: 767px){
+      padding: 0;
+      margin: auto;
+      text-align: center;
+    }
   }
   &__blockName{
     display: flex;
@@ -47,6 +66,12 @@
     font-weight: 500;
     line-height: normal;
     margin: 0;
+    @media screen and (max-width: 1023px){
+      font-size: 35px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 22px;
+    }
   }
   &__title_left{
     text-align: left;
@@ -59,6 +84,13 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 20px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 16px;
+      margin: 5px 0;
+    }
   }
   &__titleText{
     margin-top: 0;
@@ -68,6 +100,12 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 18px;
+    }
+    @media screen and (max-width: 767px){
+      margin: 10px 0;
+    }
   }
   &__labelContainer{
     display: block;
@@ -102,7 +140,6 @@
     width: 100%;
     background: none;
     border-radius: 10px;
-    border: 1px solid #FFF;
     height: 63px;
     padding: 0 20px;
     box-sizing: border-box;
@@ -112,9 +149,15 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-
-    border-radius: 10px;
     border: 1px solid #FFF;
+    @media screen and (max-width: 1023px){
+      padding: 0 10px;
+      font-size: 16px;
+      height: 50px;
+    }
+    @media screen and (max-width: 767px){
+      height: 40px;
+    }
   }
   &__input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: white;
@@ -128,9 +171,15 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__input:focus{
     box-shadow: 0 0 5px 3px white;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__input::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.80);
@@ -139,6 +188,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__input:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.80);
@@ -147,6 +199,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__inputCheckbox{
     position: absolute;
@@ -169,6 +224,9 @@
     margin-right: 20px;
     background-repeat: no-repeat;
     background-position: center center;
+    @media screen and (max-width: 767px){
+      margin: 0 5px 0 5px
+    }
   }
   &__inputCheckbox:checked+label::before {
     border-color: #0b76ef;
@@ -191,6 +249,10 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 767px){
+      font-size: 18px;
+      text-align: center;
+    }
   }
   &__text{
     color: #FFF;
@@ -207,6 +269,9 @@
     padding: 36px 0 0 0;
     margin: 0;
     width: 100%;
+    @media screen and (max-width: 767px){
+      padding: 15px 0 0 0;
+    }
   }
   &__submit{
     width: 257.627px;
@@ -225,6 +290,12 @@
     background: none;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    @media screen and (max-width: 1023px){
+      font-size: 24px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 20px;
+    }
   }
   &__footer{
     background-image: url("../../image/register-finish-footer-icon.png");
@@ -234,9 +305,18 @@
     height: 57px;
     margin: 75px auto 0;
     background-position-x: center;
+    @media screen and (max-width: 767px){
+      margin: 20px auto 0;
+      width: 270px;
+    }
   }
   &__qrBlock{
     width: 417px;
+    @media screen and (max-width: 767px){
+      width: 280px;
+      margin: auto;
+      text-align: center;
+    }
   }
   &__qrBlockBg{
     width: 417px;
@@ -244,6 +324,14 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("../../image/qrBg.png");
+    @media screen and (max-width: 1279px){
+      width: 350px;
+      height: 350px;
+    }
+    @media screen and (max-width: 767px){
+      width: 270px;
+      height: 270px;
+    }
   }
   &__qrText{
     color: #FFF;
@@ -267,6 +355,16 @@
     display: flex;
     justify-content: space-between;
     column-gap: 200px;
+    @media screen and (max-width: 1439px){
+      column-gap: 100px;
+    }
+    @media screen and (max-width: 1023px){
+      column-gap: 10px;
+    }
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      row-gap: 10px;
+    }
   }
 }
 

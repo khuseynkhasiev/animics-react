@@ -103,7 +103,7 @@ export default function RegisterFinishPage({ handleRegister }) {
                                     id='agreement'
                                     onChange={handleChangeValueInputAgreement}
                                 />
-                                <label className='registerFinishPage__labelCheckbox' htmlFor='agreement'>какое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные для чего то тамкакое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные для чего то тамкакое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные </label>
+                                <label className='registerFinishPage__labelCheckbox' htmlFor='agreement'>какое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные</label>
                             </div>
                             <div className="registerFinishPage__inputContainer">
                                 <input
@@ -113,7 +113,7 @@ export default function RegisterFinishPage({ handleRegister }) {
                                     id='consent'
                                     onChange={handleChangeValueInputConsent}
                                 />
-                                <label className='registerFinishPage__labelCheckbox' htmlFor='consent'>даю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом родедаю согласие на то чтобы получать оповещения и рссылки на почту/телефон и что то в этом роде</label>
+                                <label className='registerFinishPage__labelCheckbox' htmlFor='consent'>даю согласие на то чтобы получать оповещения и рссылки на почту/телефон</label>
                             </div>
                             {errorTextActive && <p className='registerFinishPage__errorText'>Необходимо принять пользовательское соглашение!</p>}
                             {errorTextDateActive && <p className='registerFinishPage__errorText'>Вам должно быть 14+ лет</p>}

@@ -19,6 +19,21 @@
     column-gap: 50px;
     max-width: 1340px;
     width: 100%;
+    @media screen and (max-width: 1439px){
+      max-width: 1200px;
+    }
+    @media screen and (max-width: 1279px){
+      max-width: 1000px;
+    }
+    @media screen and (max-width: 1023px){
+      column-gap: 10px;
+      max-width: 750px;
+    }
+    @media screen and (max-width: 767px){
+      flex-direction: column;
+      row-gap: 10px;
+      max-width: 310px;
+    }
   }
   &__form{
     border-radius: 30px;
@@ -29,6 +44,9 @@
     width: 100%;
     padding: 30px 30px 24px 30px;
     box-sizing: border-box;
+    @media screen and (max-width: 767px){
+      padding: 10px;
+    }
   }
   &__blockName{
     display: flex;
@@ -43,9 +61,18 @@
     font-weight: 500;
     line-height: normal;
     margin: 0;
+    @media screen and (max-width: 1023px){
+      font-size: 35px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 22px;
+    }
   }
   &__title_left{
     text-align: left;
+    @media screen and (max-width: 1023px){
+      text-align: center;
+    }
   }
   &__subtitle{
     color: #FFF;
@@ -55,6 +82,13 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 20px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 16px;
+      margin: 5px 0;
+    }
   }
   &__titleText{
     color: #FFF;
@@ -63,6 +97,12 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 18px;
+    }
+    @media screen and (max-width: 767px){
+      margin: 10px 0;
+    }
   }
   &__input{
     width: 100%;
@@ -78,6 +118,14 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      padding: 0 10px;
+      font-size: 16px;
+      height: 50px;
+    }
+    @media screen and (max-width: 767px){
+      height: 40px;
+    }
   }
   &__input_disable{
     background: #d21717;
@@ -89,6 +137,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__input:focus{
     box-shadow: 0 0 5px 3px white;
@@ -100,6 +151,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__input:-ms-input-placeholder {
     color: rgba(255, 255, 255, 0.80);
@@ -108,12 +162,19 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+    }
   }
   &__btnContainer{
     padding: 36px 0 0 0;
     margin: 0;
     width: 100%;
     text-align: right;
+    @media screen and (max-width: 767px){
+      padding: 15px 0 0 0;
+      text-align: center;
+    }
   }
   &__submit{
     width: 257.627px;
@@ -132,6 +193,9 @@
     background: none;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    @media screen and (max-width: 1023px){
+      font-size: 24px;
+    }
   }
   &__footer{
     background-image: url("../../image/registerPage__footerIcon.svg");
@@ -141,6 +205,10 @@
     height: 57px;
     margin: 75px auto 0;
     background-position-x: center;
+    @media screen and (max-width: 767px){
+      margin: 20px auto 0;
+      width: 270px;
+    }
   }
   &__speedReg{
     max-width: 474px;
@@ -159,6 +227,10 @@
     padding-left: 0;
     row-gap: 50px;
     margin: 50px 0 0 0;
+    @media screen and (max-width: 767px){
+      row-gap: 10px;
+      margin: 15px 0 0 0;
+    }
   }
   &__item{
     display: flex;
@@ -176,6 +248,10 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 16px;
+      text-align: center;
+    }
   }
   &__iconGoogle{
     background-image: url("../../image/google-icon.png");
@@ -206,6 +282,11 @@
     bottom: -110px;
     left: 0;
     cursor: pointer;
+    @media screen and (max-width: 767px){
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+    }
   }
   &__mainBackIcon{
     background-image: url("../../image/register-cirle.svg");
@@ -214,6 +295,10 @@
     width: 70px;
     height: 70px;
     position: relative;
+    @media screen and (max-width: 767px){
+      width: 50px;
+      height: 50px;
+    }
   }
   &__mainBackIcon::before{
     content: '';
@@ -236,6 +321,9 @@
     line-height: normal;
     text-transform: uppercase;
     margin: 0;
+    @media screen and (max-width: 767px){
+      font-size: 26px;
+    }
   }
 }
 
