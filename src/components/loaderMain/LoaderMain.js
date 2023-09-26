@@ -1,10 +1,9 @@
 import {Triangle} from "react-loader-spinner";
 import './loaderMain.scss';
 import Header from "../header/Header";
-export default function LoaderMain({handleOpenPopupQR}){
+export default function LoaderMain(){
     return (
         <div className='loaderMain'>
-            <Header handleOpenPopupQR={handleOpenPopupQR}/>
             <div className='loaderMain__container'>
                 <Triangle
                     height="200"

@@ -30,23 +30,27 @@ export default function MainPage() {
         setPopupDonatActive(false);
         enableVerticalScroll()
     }
-
     // Заблокировать вертикальный скролл
     function disableVerticalScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+/*        //скрол для моб устройств
+        document.addEventListener('touchmove', preventDefault, { passive: false });*/
 
         window.onscroll = () => {
             window.scrollTo(scrollLeft, scrollTop);
         };
     }
-
     // Разблокировать вертикальный скролл
     function enableVerticalScroll() {
         window.onscroll = null;
+
+/*        //скрол для моб устройств
+        document.removeEventListener('touchmove', preventDefault, { passive: false });*/
     }
-
-
+/*    function preventDefault(e) {
+        e.preventDefault();
+    }*/
     useEffect(() => {
         const image1 = new Image();
         image1.src = backgorunOneImage;
@@ -60,40 +64,45 @@ export default function MainPage() {
     }, []);
 
     return (
-            <div style={{backgroundColor: "black"}}>
-                {imagesLoaded ? (
-                    <>
-                        <Header handleOpenPopupQR={handleOpenPopupQR} handleOpenPopupDonat={handleOpenPopupDonat}/>
-                        <div className="mainPage">
-                            <div className="mainPage__bgOne"></div>
-                            <div className="mainPage__bgCenter"></div>
-                            <div className="mainPage__bgTwo"></div>
-                            <div className="title">
-                                <h1 className="title__title">ТОБА</h1>
-                                <h2 className="title__subtitle">ИНТЕРАКТИРОВАННЫЙ АНИМИРОВАННЫЙ КОМИКС</h2>
-                            </div>
-                            <main className="main">
-                                <div className="main__info">
-                                    <p className="main__text main__text_type_leftWidth">Представь что ты в мире,  где передовые <br/>технологии стали частью повседневной жизни...</p>
-                                    <p className="main__text">Мощные компьютеры, кибернетические улучшения, виртуальная реальность и искусственный интеллект переплетаются в футуристическом сюжете, мегаполисы будущего, где небоскребы пронизаны рекламой, а улицы оживают множеством разнообразных персонажей.</p>
-                                    <p className="main__text main__text_type_rigth">Этот мир полон движения, шума и неожиданных поворотов., борьба за контроль над технологическими ресурсами, конфликты между мегакорпорациями, правительствами и хакерскими<br/> группировками</p>
-                                    <div className="main__textRigthBlock">
-                                        <p className="main__text main__text_type_rightWidth">...Это приводит к философским <br/> размышлениям, не так ли ?</p>
-                                    </div>
-                                    <div className="main__infoContainer">
-                                        <h3 className="main__infoTitle">СТАНЬ ЧАСТЬЮ ВСЕЛЕННОЙ КИБЕРПАНКА ВМЕСТЕ С <span className="main__infoTitle_type_size">ТОБА</span></h3>
-                                        <div className="main__qr"></div>
-                                    </div>
-                                </div>
-                            </main>
-                            <Footer />
+        <>
+            <Header
+                handleOpenPopupQR={handleOpenPopupQR}
+                handleOpenPopupDonat={handleOpenPopupDonat}
+                handleExitPopupDonat={handleExitPopupDonat}
+                handleExitPopupQR={handleExitPopupQR}
+                enableVerticalScroll={enableVerticalScroll}/>
+            {imagesLoaded ? (
+                <div className="mainPage">
+                        <div className="mainPage__bgOne"></div>
+{/*
+                        <div className="mainPage__bgCenter"></div>
+*/}
+                        <div className="mainPage__bgTwo"></div>
+                        <div className="title">
+                            <h1 className="title__title">ТОБА</h1>
+                            <h2 className="title__subtitle">ИНТЕРАКТИРОВАННЫЙ АНИМИРОВАННЫЙ КОМИКС</h2>
                         </div>
-                    </>
-                ) : (
-                    <LoaderMain handleOpenPopupQR={handleOpenPopupQR}/>
-                )}
-                <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
-                <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
-            </div>
+                        <main className="main">
+                            <div className="main__info">
+                                <p className="main__text main__text_type_leftWidth">Представь что ты в мире,  где передовые <br/>технологии стали частью повседневной жизни...</p>
+                                <p className="main__text">Мощные компьютеры, кибернетические улучшения, виртуальная реальность и искусственный интеллект переплетаются в футуристическом сюжете, мегаполисы будущего, где небоскребы пронизаны рекламой, а улицы оживают множеством разнообразных персонажей.</p>
+                                <p className="main__text main__text_type_rigth">Этот мир полон движения, шума и неожиданных поворотов., борьба за контроль над технологическими ресурсами, конфликты между мегакорпорациями, правительствами и хакерскими<br/> группировками</p>
+                                <div className="main__textRigthBlock">
+                                    <p className="main__text main__text_type_rightWidth">...Это приводит к философским <br/> размышлениям, не так ли ?</p>
+                                </div>
+                                <div className="main__infoContainer">
+                                    <h3 className="main__infoTitle">СТАНЬ ЧАСТЬЮ ВСЕЛЕННОЙ КИБЕРПАНКА ВМЕСТЕ С <span className="main__infoTitle_type_size">ТОБА</span></h3>
+                                    <div className="main__qr"></div>
+                                </div>
+                            </div>
+                        </main>
+                        <Footer />
+                    </div>
+            ) : (
+                <LoaderMain />
+            )}
+            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
+            <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
+        </>
     );
 }

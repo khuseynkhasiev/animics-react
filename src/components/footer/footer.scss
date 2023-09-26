@@ -1,16 +1,21 @@
 .footer{
   position: relative;
-  padding: 30px 105px;
+  padding: 90px 105px 30px 105px;
+  max-width: 1280px;
+  margin: auto;
   @media screen and (max-width: 1279px){
     padding: 30px 50px;
   }
-  @media screen and (max-width: 1024px){
-    padding: 30px 30px;
+  @media screen and (max-width: 1023px){
+    padding: 80px 30px 30px;
+  }
+  @media screen and (max-width: 767px){
+    padding: 20px 10px;
   }
   &__list{
     padding-left: 0;
     list-style: none;
-    column-gap: 100px;
+    column-gap: 50px;
     display: flex;
     margin: 0;
     justify-content: space-between;
@@ -22,8 +27,16 @@
     }
     @media screen and (max-width: 767px){
       flex-direction: column;
-      row-gap: 10px;
+      row-gap: 5px;
       align-items: center;
+    }
+  }
+  &__item{
+    /*text-align: center;*/
+    position: relative;
+    padding-left: 30px;
+    @media screen and (max-width: 767px){
+      padding-left: 20px;
     }
   }
   &__link{
@@ -35,8 +48,43 @@
     line-height: normal;
     text-transform: lowercase;
     text-decoration: none;
+    position: relative;
     @media screen and (max-width: 1023px){
       font-size: 18px;
+    }
+  }
+  &__item:first-child::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: url("../../image/email-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+    @media screen and (max-width: 767px){
+      width: 15px;
+      height: 15px;
+    }
+  }
+  &__item::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: url("../../image/telegram-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+    @media screen and (max-width: 767px){
+      width: 15px;
+      height: 15px;
     }
   }
   &__text{
@@ -50,9 +98,11 @@
     font-variant: small-caps;
     @media screen and (max-width: 1023px){
       font-size: 18px;
+      margin: 30px 0 0 0;
     }
     @media screen and (max-width: 767px){
       text-align: center;
+      margin: 30px 0 0 0;
     }
   }
 }

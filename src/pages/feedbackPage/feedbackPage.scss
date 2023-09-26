@@ -16,6 +16,9 @@
     padding: 36px 0 0 0;
     margin: 0;
     width: 100%;
+    @media screen and (max-width: 1023px){
+      justify-content: center;
+    }
   }
   &__mainBack{
     display: flex;
@@ -25,6 +28,13 @@
     bottom: -110px;
     left: 0;
     cursor: pointer;
+    @media screen and (max-width: 1023px){
+      bottom: -90px;
+      width: 100%;
+    }
+    @media screen and (max-width: 767px){
+      justify-content: center;
+    }
   }
   &__mainBackIcon{
     background-image: url("../../image/register-cirle.svg");
@@ -101,7 +111,7 @@
       max-width: 700px;
     }
     @media screen and (max-width: 767px){
-      max-width: 280px;
+      max-width: 310px;
     }
   }
   &__form{
@@ -113,7 +123,7 @@
     padding: 30px 30px 24px 30px;
     box-sizing: border-box;
     @media screen and (max-width: 767px){
-      padding: 10px;
+      padding: 5px;
     }
   }
   &__blockName{
@@ -148,7 +158,8 @@
       font-size: 20px;
     }
     @media screen and (max-width: 767px){
-      font-size: 16px;
+      font-size: 14px;
+      margin: 5px 0;
     }
   }
   &__titleText{
@@ -164,7 +175,7 @@
     @media screen and (max-width: 767px){
       font-size: 16px;
       text-align: center;
-      margin: 10px 0 10px;
+      margin: 5px 0;
     }
   }
   &__titleText_lightText{
@@ -184,6 +195,10 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+    @media screen and (max-width: 767px){
+      height: 40px;
+      font-size: 18px;
+    }
   }
   &__input_disable{
     background: #d21717;

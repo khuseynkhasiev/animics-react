@@ -1,10 +1,13 @@
 .registerPage{
-  background-color: black;
   height: 100vh;
   width: 100vw;
+  @media screen and (max-width: 767px){
+    min-height: 844px;
+  }
   &__container{
     width: 100%;
     height: 100%;
+    min-height: 844px;
     background-image: url("../../image/register-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -31,7 +34,7 @@
     }
     @media screen and (max-width: 767px){
       flex-direction: column;
-      row-gap: 10px;
+      row-gap: 5px;
       max-width: 310px;
     }
   }
@@ -45,12 +48,15 @@
     padding: 30px 30px 24px 30px;
     box-sizing: border-box;
     @media screen and (max-width: 767px){
-      padding: 10px;
+      padding: 5px;
     }
   }
   &__blockName{
     display: flex;
     column-gap: 30px;
+    @media screen and (max-width: 767px){
+      column-gap: 10px;
+    }
   }
   &__title{
     color: #FFF;
@@ -65,7 +71,7 @@
       font-size: 35px;
     }
     @media screen and (max-width: 767px){
-      font-size: 22px;
+      font-size: 20px;
     }
   }
   &__title_left{
@@ -101,7 +107,8 @@
       font-size: 18px;
     }
     @media screen and (max-width: 767px){
-      margin: 10px 0;
+      margin: 5px 0;
+      font-size: 16px;
     }
   }
   &__input{
@@ -172,7 +179,7 @@
     width: 100%;
     text-align: right;
     @media screen and (max-width: 767px){
-      padding: 15px 0 0 0;
+      padding: 10px 0 0 0;
       text-align: center;
     }
   }
@@ -196,6 +203,11 @@
     @media screen and (max-width: 1023px){
       font-size: 24px;
     }
+    @media screen and (max-width: 767px){
+      height: 50px;
+      font-size: 18px;
+      width: 230.627px;
+    }
   }
   &__footer{
     background-image: url("../../image/registerPage__footerIcon.svg");
@@ -206,7 +218,7 @@
     margin: 75px auto 0;
     background-position-x: center;
     @media screen and (max-width: 767px){
-      margin: 20px auto 0;
+      margin: 10px auto 0;
       width: 270px;
     }
   }
@@ -219,6 +231,9 @@
     backdrop-filter: blur(7.5px);
     padding: 20px;
     box-sizing: border-box;
+    @media screen and (max-width: 767px){
+      padding: 5px;
+    }
   }
   &__list{
     display: flex;
@@ -228,8 +243,8 @@
     row-gap: 50px;
     margin: 50px 0 0 0;
     @media screen and (max-width: 767px){
-      row-gap: 10px;
-      margin: 15px 0 0 0;
+      row-gap: 5px;
+      margin: 10px 0 0 0;
     }
   }
   &__item{
@@ -240,6 +255,10 @@
     align-items: center;
     padding: 0 20px;
     cursor: pointer;
+    @media screen and (max-width: 767px){
+      column-gap: 10px;
+      padding: 0 15px;
+    }
   }
   &__linkText{
     color: rgba(255, 255, 255, 0.80);
@@ -252,6 +271,9 @@
       font-size: 16px;
       text-align: center;
     }
+    @media screen and (max-width: 767px){
+      margin: 5px 0;
+    }
   }
   &__iconGoogle{
     background-image: url("../../image/google-icon.png");
@@ -259,6 +281,10 @@
     width: 38px;
     height: 38px;
     background-repeat: no-repeat;
+    @media screen and (max-width: 767px){
+      width: 30px;
+      height: 30px;
+    }
   }
   &__iconVk{
     background-image: url("../../image/vk-icon.png");
@@ -266,6 +292,10 @@
     width: 38px;
     height: 38px;
     background-repeat: no-repeat;
+    @media screen and (max-width: 767px){
+      width: 30px;
+      height: 30px;
+    }
   }
   &__iconYandex{
     background-image: url("../../image/yandex-icon.png");
@@ -273,6 +303,10 @@
     width: 38px;
     height: 38px;
     background-repeat: no-repeat;
+    @media screen and (max-width: 767px){
+      width: 30px;
+      height: 30px;
+    }
   }
   &__mainBack{
     display: flex;
@@ -286,6 +320,7 @@
       left: 50%;
       transform: translateX(-50%);
       width: 70%;
+      bottom: -70px;
     }
   }
   &__mainBackIcon{

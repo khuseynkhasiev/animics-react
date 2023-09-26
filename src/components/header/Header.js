@@ -1,12 +1,24 @@
 import './header.scss';
 import {useNavigate} from "react-router";
-export default function Header({handleOpenPopupQR, handleOpenPopupDonat}){
+export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleExitPopupQR, handleExitPopupDonat, enableVerticalScroll}){
     const navigate = useNavigate();
     const handleClickRegisterPage = () => {
+        enableVerticalScroll();
         navigate('/register');
     }
     const handleClickFeedbackPage = () => {
+        enableVerticalScroll();
         navigate('/feedback');
+    }
+
+    const handleClickOpenPopupDonat = () => {
+        handleExitPopupQR();
+        handleOpenPopupDonat();
+    }
+
+    const handleClickOpenPopupQR = () => {
+        handleExitPopupDonat();
+        handleOpenPopupQR()
     }
 
     return (
@@ -19,10 +31,10 @@ export default function Header({handleOpenPopupQR, handleOpenPopupDonat}){
                     <li className="header__item" onClick={handleClickFeedbackPage}>
                         Обратная связь
                     </li>
-                    <li className="header__item" onClick={handleOpenPopupDonat}>
+                    <li className="header__item" onClick={handleClickOpenPopupDonat}>
                         Донат
                     </li>
-                    <li className="header__item" onClick={handleOpenPopupQR}>
+                    <li className="header__item" onClick={handleClickOpenPopupQR}>
                         QR-код
                     </li>
                 </ul>

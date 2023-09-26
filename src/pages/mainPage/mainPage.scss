@@ -1,8 +1,14 @@
 .mainPage{
   width: 100%;
-  height: 3064px;
+  /*height: 3064px;*/
   margin: auto;
   position: relative;
+  @media screen and (max-width: 1023px){
+    height: 100%;
+  }
+  @media screen and (max-width: 767px){
+    height: 100%;
+  }
   &__bgOne{
     background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-one.gif'), lightgray 50%;
     height: 1465px;
@@ -11,15 +17,28 @@
     background-size: cover;
     position: absolute;
     background-position-x: center;
+    @media screen and (max-width: 1279px){
+      height: 1000px;
+    }
+    @media screen and (max-width: 1023px){
+      height: 770px;
+      top: 0;
+    }
+    @media screen and (max-width: 767px){
+      height: 390px;
+      top: 0;
+    }
   }
-
-  &__bgCenter{
+/*  &__bgCenter{
     width: 100%;
     height: 134px;
     background: #000;
     top: 1465px;
     position: absolute;
-  }
+    @media screen and (max-width: 767px){
+      height: 200px;
+    }
+  }*/
   &__bgTwo{
     background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url('../../image/main-bg-two.gif'), lightgray 50%;
     height: 1465px;
@@ -27,8 +46,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    top: calc(1465px + 134px);
+    /*top: calc(1465px + 134px);*/
     background-position-x: center;
+    top: 1720px;
+    @media screen and (max-width: 1279px){
+      top: 1400px;
+      height: 1000px;
+    }
+    @media screen and (max-width: 1023px){
+      top: 1100px;
+      height: 770px;
+    }
+    @media screen and (max-width: 767px){
+      top: 600px;
+      height: 390px;
+    }
   }
 }
 .title{
@@ -38,6 +70,12 @@
   left: 50%;
   transform: translateX(-50%);
   animation: slideTitle 3s ease forwards;
+  @media screen and (max-width: 1023px){
+    animation: slideTitleTablet 3s ease forwards;
+  }
+  @media screen and (max-width: 767px){
+    animation: slideTitleMobile 3s ease forwards;
+  }
   &__title{
     color: #D8D8DF;
     text-align: center;
@@ -50,7 +88,7 @@
     @media screen and (max-width: 1280px){
       font-size: 220px;
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1023px){
       font-size: 150px;
     }
     @media screen and (max-width: 767px){
@@ -86,18 +124,36 @@
     top: 380px;
   }
 }
+@keyframes slideTitleTablet {
+  0% {
+    top: 110px;
+  }
+  100% {
+    top: 210px;
+  }
+}
+@keyframes slideTitleMobile {
+  0% {
+    top: 50px;
+  }
+  100% {
+    top: 110px;
+  }
+}
 
 .main{
   position: relative;
-  height: calc(1465px * 2 - 70px - 161px + 134px);
+  /*height: calc(1465px * 2 - 70px - 161px + 134px);*/
   padding: 185px 100px 0 100px;
   box-sizing: border-box;
-  @media screen and (max-width: 1024px){
-    padding: 185px 70px 0 70px;
+  max-width: 1280px;
+  margin: auto;
+  @media screen and (max-width: 1023px){
+    padding: 100px 30px 0 30px;
   }
   @media screen and (max-width: 767px){
     padding: 30px 10px 0 10px;
-    height: 2650px;
+    /*height: 2650px;*/
   }
   &__text{
     color: #FFF;
@@ -108,14 +164,14 @@
     line-height: normal;
     font-variant: small-caps;
     margin: 0;
-    @media screen and (max-width: 1280px){
+    @media screen and (max-width: 1279px){
       font-size: 30px;
     }
-    @media screen and (max-width: 1024px){
-      font-size: 26px;
+    @media screen and (max-width: 1023px){
+      font-size: 20px;
     }
     @media screen and (max-width: 767px){
-      font-size: 16px;
+      font-size: 12px;
     }
   }
   &__textRigthBlock{
@@ -127,41 +183,54 @@
     max-width: 962px;
     text-align: left;
     margin-bottom: 48px;
+    @media screen and (max-width: 767px){
+      margin-bottom: 10px;
+    }
   }
   &__text_type_rigth{
     text-align: right;
     margin-top: 50px;
+    @media screen and (max-width: 767px){
+      margin-top: 10px;
+    }
   }
   &__text_type_rightWidth{
     max-width: 962px;
     text-align: right;
     font-size: 40px;
-    @media screen and (max-width: 1280px){
+    @media screen and (max-width: 1279px){
       font-size: 36px;
     }
-    @media screen and (max-width: 1024px){
-      font-size: 32px;
+    @media screen and (max-width: 1023px){
+      font-size: 26px;
     }
     @media screen and (max-width: 767px){
-      font-size: 24px;
+      font-size: 16px;
     }
   }
   &__info{
-    padding-top: 920px;
+    padding-top: 1079px;
     box-sizing: border-box;
+    @media screen and (max-width: 1279px){
+      padding-top: 800px;
+    }
+    @media screen and (max-width: 1023px){
+      padding-top: 600px;
+    }
     @media screen and (max-width: 767px){
-      padding-top: 700px;
+      padding-top: 300px;
     }
   }
   &__infoContainer{
     display: flex;
     column-gap: 10px;
-    padding-top: 250px;
+    padding-top: 150px;
     justify-content: space-evenly;
     @media screen and (max-width: 767px){
       flex-direction: column;
-      row-gap: 20px;
+      row-gap: 15px;
       align-items: center;
+      padding-top: 10px;
     }
   }
   &__infoTitle{
@@ -175,14 +244,14 @@
     max-width: 750px;
     width: 100%;
     margin: 0;
-    @media screen and (max-width: 1280px){
+    @media screen and (max-width: 1279px){
       font-size: 60px;
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1023px){
       font-size: 45px;
     }
     @media screen and (max-width: 767px){
-      font-size: 30px;
+      font-size: 16px;
       text-align: center;
     }
   }
@@ -191,8 +260,11 @@
     @media screen and (max-width: 1279px){
       font-size: 100px;
     }
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1023px){
       font-size: 80px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 20px;
     }
   }
   &__qr{
@@ -202,9 +274,13 @@
     background-size: contain;
     background-position-y: center;
     height: 502px;
+    @media screen and (max-width: 1023px){
+      width: 400px;
+      height: 400px;
+    }
     @media screen and (max-width: 767px){
-      width: 280px;
-      height: 280px;
+      width: 150px;
+      height: 150px;
     }
   }
 }
