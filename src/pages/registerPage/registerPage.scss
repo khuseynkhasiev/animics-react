@@ -35,7 +35,7 @@
     @media screen and (max-width: 767px){
       flex-direction: column;
       row-gap: 5px;
-      max-width: 310px;
+      max-width: 767px;
     }
   }
   &__form{
@@ -49,6 +49,8 @@
     box-sizing: border-box;
     @media screen and (max-width: 767px){
       padding: 5px;
+      width: calc(100% - 10px);
+      margin: 0 5px;
     }
   }
   &__blockName{
@@ -233,6 +235,9 @@
     box-sizing: border-box;
     @media screen and (max-width: 767px){
       padding: 5px;
+      max-width: 767px;
+      width: calc(100% - 10px);
+      margin: 0 5px;
     }
   }
   &__list{
@@ -258,6 +263,7 @@
     @media screen and (max-width: 767px){
       column-gap: 10px;
       padding: 0 15px;
+      height: 40px;
     }
   }
   &__linkText{

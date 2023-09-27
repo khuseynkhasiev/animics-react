@@ -23,7 +23,7 @@
     max-width: 1340px;
     width: 100%;
 
-    border-radius: 30px;
+/*    border-radius: 30px;
     border: 2px solid #FFF;
     background: rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(7.5px);
@@ -31,7 +31,7 @@
     flex-direction: column;
 
     padding: 34px 50px 20px 30px;
-    box-sizing: border-box;
+    box-sizing: border-box;*/
     @media screen and (max-width: 1439px){
       max-width: 1200px;
     }
@@ -40,13 +40,39 @@
     }
     @media screen and (max-width: 1023px){
       max-width: 750px;
+      /*
+      padding: 10px 15px;
+      */
+    }
+    @media screen and (max-width: 767px){
+/*      flex-direction: column;
+      row-gap: 5px;*/
+      max-width: 767px;
+/*      padding: 5px;*/
+    }
+  }
+  &__content{
+    border-radius: 30px;
+    border: 2px solid #FFF;
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+    flex-direction: column;
+    padding: 34px 50px 20px 30px;
+    box-sizing: border-box;
+    @media screen and (max-width: 1439px){
+    }
+    @media screen and (max-width: 1279px){
+    }
+    @media screen and (max-width: 1023px){
       padding: 10px 15px;
     }
     @media screen and (max-width: 767px){
       flex-direction: column;
       row-gap: 5px;
-      max-width: 310px;
       padding: 5px;
+      margin: 0 5px;
+      width: calc(100% - 10px);
     }
   }
   &__form{
@@ -54,7 +80,6 @@
     width: 100%;
     @media screen and (max-width: 767px){
       padding: 0;
-      margin: auto;
       text-align: center;
     }
   }
@@ -179,8 +204,7 @@
     }
     @media screen and (max-width: 767px){
       height: 40px;
-      max-width: 300px;
-      width: 100%;
+      max-width: 767px;
     }
   }
   &__input[type="date"]::-webkit-calendar-picker-indicator {
