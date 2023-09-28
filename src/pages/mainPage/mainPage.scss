@@ -17,6 +17,9 @@
     background-size: cover;
     position: absolute;
     background-position-x: center;
+    @media screen and (min-width: 1860px){
+      height: 2200px;
+    }
     @media screen and (max-width: 1279px){
       height: 1000px;
     }
@@ -49,6 +52,10 @@
     /*top: calc(1465px + 134px);*/
     background-position-x: center;
     top: 1720px;
+    @media screen and (min-width: 1860px){
+      top: 2500px;
+      height: 2200px;
+    }
     @media screen and (max-width: 1279px){
       top: 1400px;
       height: 1000px;
@@ -70,6 +77,10 @@
   left: 50%;
   transform: translateX(-50%);
   animation: slideTitle 3s ease forwards;
+  @media screen and (min-width: 1860px){
+    animation: slideTitleBig 3s ease forwards;
+
+  }
   @media screen and (max-width: 1023px){
     animation: slideTitleTablet 3s ease forwards;
   }
@@ -116,12 +127,20 @@
     }
   }
 }
-@keyframes slideTitle {
+@keyframes slideTitleBig {
   0% {
-    top: 275px;
+    top: 470px;
   }
   100% {
-    top: 380px;
+    top: 570px;
+  }
+}
+@keyframes slideTitle {
+  0% {
+    top: 260px;
+  }
+  100% {
+    top: 320px;
   }
 }
 @keyframes slideTitleTablet {
@@ -148,6 +167,9 @@
   box-sizing: border-box;
   max-width: 1280px;
   margin: auto;
+  @media screen and (min-width: 1860px){
+    height: 4300px;
+  }
   @media screen and (max-width: 1023px){
     padding: 100px 30px 0 30px;
   }
@@ -211,6 +233,9 @@
   &__info{
     padding-top: 1079px;
     box-sizing: border-box;
+    @media screen and (min-width: 1860px){
+      padding-top: 1900px;
+    }
     @media screen and (max-width: 1279px){
       padding-top: 800px;
     }

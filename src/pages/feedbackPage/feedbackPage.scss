@@ -1,10 +1,13 @@
 .feedbackPage{
   background-color: black;
-  height: 100vh;
+ /* height: 100vh;*/
+  min-height: 844px;
+  height: 100%;
   width: 100vw;
   &__container{
-    width: 100%;
+    min-height: 844px;
     height: 100%;
+    width: 100%;
     background-image: url("../../image/feedback-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
