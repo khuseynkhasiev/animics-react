@@ -11,7 +11,6 @@ import FeedbackPage from "./pages/feedbackPage/FeedbackPage";
 import * as api from "./utils/api";
 
 function App() {
-
     function handleRegister(user){
         return api.register(user)
             .then((data) => console.log(data))
@@ -20,6 +19,7 @@ function App() {
                 console.log(`Ошибка: ${err.json().message}`);
             })
     }
+
   return (
       <Routes>
           <Route path='/' element={<MainPage />}/>

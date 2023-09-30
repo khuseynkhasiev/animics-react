@@ -12,16 +12,18 @@ const checkUniqueLogin = (login) => {
         },
         body: JSON.stringify({login})
     }).then((res) => getResponse(res))
+        .then((data) => !data.message)
 }
 
 const checkUniqueEmail = (email) => {
-    return fetch(`${BASE_URL}/register/unique/mail`, {
+    return fetch(`${BASE_URL}/register/unique/email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({email})
     }).then((res) => getResponse(res))
+        .then((data) => !data.message)
 }
 const register = ({
     agreement,

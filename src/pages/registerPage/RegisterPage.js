@@ -1,8 +1,12 @@
 import './registerPage.scss';
 import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
+import * as api from "../../utils/api";
+
 export default function RegisterPage() {
     const navigate = useNavigate();
+    const [isCheckLogin, setIsCheckLogin] = useState(false);
+    const [isCheckEmail, setIsCheckEmail] = useState(false)
     const [user, setUser] = useState({
         name: '',
         surname: '',
@@ -13,6 +17,39 @@ export default function RegisterPage() {
         consent: false,
         agreement: false,
     });
+
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('RegUser'))
+        if (user !== null || undefined) {
+            setUser(user);
+        }
+    }, []);
+
+    const handleNextPageClick = (isLogin = false, isEmail = false) => {
+        if(isLogin === true){
+            console.log('такой логин уже существует');
+        }
+        if (isEmail === true){
+            console.log('такая почта уже существует');
+        }
+        if(isLogin === false && isEmail === false){
+            navigate('/register-password');
+        }
+    }
+    function handleCheckUser(login, email) {
+        Promise.all([api.checkUniqueLogin(login), api.checkUniqueEmail(email)])
+            .then(([isLogin, isEmail]) => {
+                setIsCheckLogin(isLogin);
+                setIsCheckEmail(isEmail);
+                localStorage.setItem('RegUser', JSON.stringify(user));
+                handleNextPageClick(isLogin, isEmail);
+            })
+            .catch((err) => {
+                console.log(`Ошибка сервера: ${err}`);
+            });
+    }
+
     const handleChangeInput = (e) => {
         const {name, value} = e.target;
         setUser({...user, [name]:value });
@@ -21,22 +58,16 @@ export default function RegisterPage() {
         navigate('/');
         localStorage.removeItem('RegUser');
     }
-    const handleNextPageClick = (e) => {
+    const handleSubmitForm = (e) => {
         e.preventDefault();
-        localStorage.setItem('RegUser', JSON.stringify(user));
-        navigate('/register-password');
+        handleCheckUser(user.login, user.email);
     }
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('RegUser'))
-        if (user !== null || undefined) {
-            setUser(user);
-        }
-    }, [])
+
     return (
         <div className='registerPage'>
             <div className='registerPage__container'>
                 <div className='registerPage__formContainer'>
-                    <form className='registerPage__form' onSubmit={handleNextPageClick} action="" method="POST" id='registerForm'>
+                    <form className='registerPage__form' onSubmit={handleSubmitForm} action="" method="POST" id='registerForm'>
                         <h2 className='registerPage__title'>Регистрация учетной записи</h2>
                         <p className='registerPage__subtitle'>Уже есть учетная запись? Тогда переходи сюда >>></p>
                         <div className='registerPage__blockName'>
@@ -61,7 +92,11 @@ export default function RegisterPage() {
                                 required
                             />
                         </div>
-                        <p className='registerPage__titleText'>Как к Вам обращаться?</p>
+                        {isCheckLogin ?
+                            <p style={{color: "red"}} className='registerPage__titleText'>Такой логин уже существует</p>
+                            :
+                            <p className='registerPage__titleText'>Как к Вам обращаться?</p>
+                        }
                         <input
                             className='registerPage__input'
                             onChange={handleChangeInput}
@@ -72,7 +107,11 @@ export default function RegisterPage() {
                             value={user.login}
                             required
                         />
-                        <p className='registerPage__titleText'>Почта</p>
+                        {isCheckEmail ?
+                            <p style={{color: "red"}} className='registerPage__titleText'>Такая почта уже существует</p>
+                            :
+                            <p className='registerPage__titleText'>Почта</p>
+                        }
                         <input
                             className='registerPage__input'
                             onChange={handleChangeInput}

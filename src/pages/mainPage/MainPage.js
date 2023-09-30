@@ -74,9 +74,6 @@ export default function MainPage() {
             {imagesLoaded ? (
                 <div className="mainPage">
                         <div className="mainPage__bgOne"></div>
-{/*
-                        <div className="mainPage__bgCenter"></div>
-*/}
                         <div className="mainPage__bgTwo"></div>
                         <div className="title">
                             <h1 className="title__title">ТОБА</h1>
@@ -97,7 +94,7 @@ export default function MainPage() {
                             </div>
                         </main>
                         <Footer />
-                    </div>
+                </div>
             ) : (
                 <LoaderMain />
             )}
