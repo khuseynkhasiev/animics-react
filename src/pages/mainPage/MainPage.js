@@ -14,21 +14,29 @@ export default function MainPage() {
 
     const handleOpenPopupQR = () => {
         setPopupQrActive(true);
+/*
         disableVerticalScroll()
+*/
     }
     const handleExitPopupQR = () => {
         setPopupQrActive(false);
+/*
         enableVerticalScroll()
+*/
     }
 
     const handleOpenPopupDonat = () => {
         setPopupDonatActive(true);
+/*
         disableVerticalScroll()
+*/
     }
 
     const handleExitPopupDonat = () => {
         setPopupDonatActive(false);
+/*
         enableVerticalScroll()
+*/
     }
     // Заблокировать вертикальный скролл
     function disableVerticalScroll() {

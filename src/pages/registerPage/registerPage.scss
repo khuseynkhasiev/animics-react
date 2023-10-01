@@ -1,8 +1,9 @@
 .registerPage{
+  min-height: 844px;
   height: 100vh;
   width: 100vw;
   @media screen and (max-width: 767px){
-    min-height: 844px;
+
   }
   &__container{
     width: 100%;
@@ -12,6 +13,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
+
   }
   &__formContainer{
     display: flex;
@@ -36,6 +38,8 @@
       flex-direction: column;
       row-gap: 5px;
       max-width: 767px;
+
+      position: relative;
     }
   }
   &__form{
