@@ -38,27 +38,7 @@ export default function MainPage() {
         enableVerticalScroll()
 */
     }
-    // Заблокировать вертикальный скролл
-    function disableVerticalScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-/*        //скрол для моб устройств
-        document.addEventListener('touchmove', preventDefault, { passive: false });*/
 
-        window.onscroll = () => {
-            window.scrollTo(scrollLeft, scrollTop);
-        };
-    }
-    // Разблокировать вертикальный скролл
-    function enableVerticalScroll() {
-        window.onscroll = null;
-
-/*        //скрол для моб устройств
-        document.removeEventListener('touchmove', preventDefault, { passive: false });*/
-    }
-/*    function preventDefault(e) {
-        e.preventDefault();
-    }*/
     useEffect(() => {
         const image1 = new Image();
         image1.src = backgorunOneImage;
@@ -77,8 +57,7 @@ export default function MainPage() {
                 handleOpenPopupQR={handleOpenPopupQR}
                 handleOpenPopupDonat={handleOpenPopupDonat}
                 handleExitPopupDonat={handleExitPopupDonat}
-                handleExitPopupQR={handleExitPopupQR}
-                enableVerticalScroll={enableVerticalScroll}/>
+                handleExitPopupQR={handleExitPopupQR}/>
             {imagesLoaded ? (
                 <div className="mainPage">
                         <div className="mainPage__bgOne"></div>
