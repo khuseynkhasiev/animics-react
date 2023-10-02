@@ -21,6 +21,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     column-gap: 50px;
     max-width: 1340px;
     width: 100%;
@@ -38,7 +39,6 @@
       flex-direction: column;
       row-gap: 5px;
       max-width: 767px;
-
       position: relative;
     }
   }

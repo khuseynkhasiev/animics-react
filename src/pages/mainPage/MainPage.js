@@ -102,12 +102,14 @@ export default function MainPage() {
                             </div>
                         </main>
                         <Footer />
+                    <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
+                    <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
                 </div>
             ) : (
                 <LoaderMain />
             )}
-            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
-            <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
+{/*            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
+            <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>*/}
         </>
     );
 }
