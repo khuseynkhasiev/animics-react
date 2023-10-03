@@ -1,7 +1,7 @@
 const BASE_URL = 'https://animics.ru/api';
 
 const getResponse = (res) => {
-    return res.ok? res.json() : res.json().message;
+    return res.ok ? res.json() : Promise.reject(res);
 }
 
 const checkUniqueLogin = (login) => {
@@ -53,7 +53,7 @@ const register = ({
             date
         })
     })
-        .then((res) => getResponse(res))
+        .then((res) => res.ok ? res.json() : Promise.reject(res));
 }
 
 export { register, checkUniqueLogin, checkUniqueEmail }

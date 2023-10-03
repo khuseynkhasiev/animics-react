@@ -1,7 +1,9 @@
 import './registerFinishPage.scss';
 import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
-export default function RegisterFinishPage({ handleRegister }) {
+import PopupRegister from "../../components/popupRegister/PopupRegister";
+import * as api from "../../utils/api";
+export default function RegisterFinishPage() {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() - 14;
     const currentMonth = currentDate.getMonth() + 1;
@@ -14,6 +16,69 @@ export default function RegisterFinishPage({ handleRegister }) {
 
     const [errorTextActive, setErrorTextActive] = useState(false);
     const [errorTextDateActive, setErrorTextDateActive] = useState(false);
+
+
+    const [registerPopupText, setRegisterPopupText] = useState(' ')
+    const [registerPopupIsError, setRegisterPopupIsError] = useState(false);
+    const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
+    const [registerPopupMainNavigate, setRegisterPopupMainNavigate] = useState(true)
+
+    function handleRegisterPopupOpen(){
+        setRegisterPopupIsOpen(true);
+    }
+    function handleRegisterPopupExit(){
+        setRegisterPopupIsOpen(false);
+        if(registerPopupMainNavigate) {
+            navigate('/');
+            localStorage.removeItem('RegUser');
+        }
+    }
+
+    function handleRegister(user) {
+        return api.register(user)
+            .then((data) => {
+                // Обработка успешного ответа сервера
+                handleRegisterPopupOpen();
+                setRegisterPopupMainNavigate(true)
+                setRegisterPopupIsError(false);
+                console.log(data.message);
+                setRegisterPopupText('Для завершения регистрации Вам необходимо подтвердить электронный адрес. Письмо мы отправили, ожидайте.')
+            })
+            .catch((err) => {
+                handleRegisterPopupOpen();
+                setRegisterPopupMainNavigate(false)
+                setRegisterPopupIsError(true);
+                if (err instanceof TypeError && err.message === 'Failed to fetch') {
+                    // Обработка ошибки, если нет интернет-соединения
+                    console.error('Нет интернет-соединения');
+                    setRegisterPopupText('Нет интернет-соединения')
+                } else if (err instanceof Response) {
+                    // Обработка ошибки, если пришел ответ от сервера с ошибкой
+                    err.json()
+                        .then((errorData) => {
+                            if (errorData && errorData.errors) {
+                                // Если сервер вернул ошибки валидации формы
+                                const loginError = errorData.errors.login ? errorData.errors.login[0] : '';
+                                const emailError = errorData.errors.email ? errorData.errors.email[0] : '';
+                                console.error(`${loginError} ${emailError}`);
+                                setRegisterPopupText(`${loginError} ${emailError}`)
+                            } else {
+                                console.error(`Ошибка сервера. Код: ${err.status}, Текст: ${err.statusText}`);
+                                setRegisterPopupText(`Ошибка сервера. Код: ${err.status}, Текст: ${err.statusText}`)
+                            }
+                        })
+                        .catch((jsonErr) => {
+                            console.error('Ошибка разбора JSON:', jsonErr);
+                            setRegisterPopupText(`Ошибка разбора JSON:, ${jsonErr}`)
+                        });
+                } else {
+                    console.error('Необработанная ошибка:', err);
+                    setRegisterPopupText(`Необработанная ошибка: ${err}`)
+                }
+            });
+    }
+
+
 
     useEffect(() => {
         const year = +date.slice(0, 4);
@@ -68,9 +133,9 @@ export default function RegisterFinishPage({ handleRegister }) {
                 addValueRegUser();
                 const user = JSON.parse(localStorage.getItem('RegUser'));
                 handleRegister(user);
-                navigate('/');
+                /*navigate('/');*/
                 setErrorTextActive(false);
-                localStorage.removeItem('RegUser');
+                /*localStorage.removeItem('RegUser');*/
             }
         } else {
             setErrorTextActive(true);
@@ -79,6 +144,12 @@ export default function RegisterFinishPage({ handleRegister }) {
     }
     return (
         <div className='registerFinishPage'>
+            <PopupRegister
+                registerPopupText={registerPopupText}
+                handleRegisterPopupOpen={handleRegisterPopupOpen}
+                handleRegisterPopupExit={handleRegisterPopupExit}
+                registerPopupIsOpen={registerPopupIsOpen}
+                registerPopupIsError={registerPopupIsError}/>
             <div className='registerFinishPage__container'>
                 <div className='registerFinishPage__formContainer'>
                     <div className='registerFinishPage__content'>

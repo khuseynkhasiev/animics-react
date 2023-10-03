@@ -1,0 +1,116 @@
+.register {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+
+  &_active {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.80);
+    width: 100%;
+    min-height: 844px;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 1s ease;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  &__container{
+    border-radius: 30px;
+    border: 2px solid #FFF;
+    background: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(7.5px);
+
+    max-width: 800px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+/*    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);*/
+    padding: 80px 51px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 1279px){
+    }
+    @media screen and (max-width: 1023px){
+      padding: 40px 15px;
+      width: 730px;
+      max-width: 550px;
+    }
+    @media screen and (max-width: 767px){
+      padding: 25px 10px;
+      max-width: 300px;
+    }
+  }
+  &__block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 200px;
+    align-items: center;
+    /*height: 220px;*/
+    width: 100%;
+/*    border-radius: 20px;
+    border: 2px solid #FFF;*/
+  }
+  &__icon{
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    @media screen and (max-width: 1023px){
+      width: 60px;
+      height: 60px;
+    }
+    @media screen and (max-width: 767px){
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__icon_error{
+    background-image: url("../../image/popup-error-icon.svg");
+  }
+  &__icon_success{
+    background-image: url("../../image/popup-access-icon.svg");
+  }
+  &__register-text{
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat, Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    @media screen and (max-width: 767px){
+      font-size: 18px;
+    }
+  }
+  &__text{
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat, Inter, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    @media screen and (max-width: 1023px){
+      font-size: 24px;
+    }
+    @media screen and (max-width: 767px){
+      font-size: 16px;
+    }
+  }
+}

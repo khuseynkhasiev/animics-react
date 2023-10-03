@@ -1,13 +1,11 @@
 import './header.scss';
 import {useNavigate} from "react-router";
-export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleExitPopupQR, handleExitPopupDonat, enableVerticalScroll}){
+export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleExitPopupQR, handleExitPopupDonat}){
     const navigate = useNavigate();
     const handleClickRegisterPage = () => {
-        enableVerticalScroll();
         navigate('/register');
     }
     const handleClickFeedbackPage = () => {
-        enableVerticalScroll();
         navigate('/feedback');
     }
 
