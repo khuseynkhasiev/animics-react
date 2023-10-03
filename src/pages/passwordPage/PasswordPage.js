@@ -64,62 +64,60 @@ export default function PasswordPage() {
 
     return (
         <div className='passwordPage'>
-            <div className='passwordPage__container'>
-                <div className='passwordPage__formContainer'>
-                    <form className='passwordPage__form' action="" method="POST" onSubmit={handleNextPageClick}>
-                        <h2 className='passwordPage__title'>Следующий шаг</h2>
-                        <p className='passwordPage__subtitle'>Осталось совсем немного...</p>
-                        <p className='passwordPage__titleText'>Придумайте пароль</p>
-                        <div className="passwordPage__passwordContainer">
-                            <input
-                                className='passwordPage__input'
-                                type={showPassword ? "text" : "password"}
-                                id='passwordPage__password'
-                                name='password'
-                                placeholder='пароль'
-                                minLength={8}
-                                maxLength={30}
-                                value={password}
-                                onChange={handleInputPasswordValue}
-                                required
-                            />
-                            <a href="#" className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></a>
-                        </div>
-                        <p className='passwordPage__titleText'>Повторите введенный пароль</p>
-                        <div className="passwordPage__passwordContainer">
-                            <input
-                                className='passwordPage__input'
-                                type={showRepeatPassword ? "text" : "password"}
-                                id='passwordPage__repeatPassword'
-                                name='repeat-password'
-                                placeholder='пароль'
-                                minLength={8}
-                                maxLength={30}
-                                value={passwordRepeat}
-                                onChange={handleInputPasswordRepeatValue}
-                                required
-                            />
-                            <a href="#" className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></a>
-                        </div>
-                        {activeError ?
-                            <p className='passwordPage__subtext '>Пароль должен быть не меньше 8 символов, содержать символ верхнего и нижнего регистра</p>
-                            :
-                            <p className='passwordPage__subtext '>Пароли не совпадают</p>
-                        }
-                        <div className='passwordPage__btnContainer'>
-                            <button
-                                className='passwordPage__submit'
-                                type='button'
-                                onClick={handleBackPageClick}
-                            >Назад</button>
-                            <button
-                                className='passwordPage__submit'
-                                type='submit'
-                            >Далее</button>
-                        </div>
-                        <div className='passwordPage__footer'></div>
-                    </form>
-                </div>
+            <div className='passwordPage__formContainer'>
+                <form className='passwordPage__form' action="" method="POST" onSubmit={handleNextPageClick}>
+                    <h2 className='passwordPage__title'>Следующий шаг</h2>
+                    <p className='passwordPage__subtitle'>Осталось совсем немного...</p>
+                    <p className='passwordPage__titleText'>Придумайте пароль</p>
+                    <div className="passwordPage__passwordContainer">
+                        <input
+                            className='passwordPage__input'
+                            type={showPassword ? "text" : "password"}
+                            id='passwordPage__password'
+                            name='password'
+                            placeholder='пароль'
+                            minLength={8}
+                            maxLength={30}
+                            value={password}
+                            onChange={handleInputPasswordValue}
+                            required
+                        />
+                        <a href="#" className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></a>
+                    </div>
+                    <p className='passwordPage__titleText'>Повторите введенный пароль</p>
+                    <div className="passwordPage__passwordContainer">
+                        <input
+                            className='passwordPage__input'
+                            type={showRepeatPassword ? "text" : "password"}
+                            id='passwordPage__repeatPassword'
+                            name='repeat-password'
+                            placeholder='пароль'
+                            minLength={8}
+                            maxLength={30}
+                            value={passwordRepeat}
+                            onChange={handleInputPasswordRepeatValue}
+                            required
+                        />
+                        <a href="#" className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></a>
+                    </div>
+                    {activeError ?
+                        <p className='passwordPage__subtext '>Пароль должен быть не меньше 8 символов, содержать символ верхнего и нижнего регистра</p>
+                        :
+                        <p className='passwordPage__subtext '>Пароли не совпадают</p>
+                    }
+                    <div className='passwordPage__btnContainer'>
+                        <button
+                            className='passwordPage__submit'
+                            type='button'
+                            onClick={handleBackPageClick}
+                        >Назад</button>
+                        <button
+                            className='passwordPage__submit'
+                            type='submit'
+                        >Далее</button>
+                    </div>
+                    <div className='passwordPage__footer'></div>
+                </form>
             </div>
         </div>
     );

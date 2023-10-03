@@ -20,7 +20,9 @@ export default function FeedbackPage() {
     }
     return (
         <div className='feedbackPage'>
+{/*
             <div className='feedbackPage__container'>
+*/}
                 <div className='feedbackPage__formContainer'>
                     <form
                         className='feedbackPage__form'
@@ -75,7 +77,9 @@ export default function FeedbackPage() {
                         <p className='feedbackPage__mainBackText'>в начало</p>
                     </div>
                 </div>
+{/*
             </div>
+*/}
         </div>
     );
 }
