@@ -4,6 +4,16 @@ const getResponse = (res) => {
     return res.ok ? res.json() : Promise.reject(res);
 }
 
+const sendMessageSupportEmail = ({email, name, message}) => {
+    return fetch(`${BASE_URL}/support`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email, name, message})
+    }).then((res) => getResponse(res))
+}
+
 const checkUniqueLogin = (login) => {
     return fetch(`${BASE_URL}/register/unique/login`, {
         method: 'POST',
@@ -56,4 +66,4 @@ const register = ({
         .then((res) => res.ok ? res.json() : Promise.reject(res));
 }
 
-export { register, checkUniqueLogin, checkUniqueEmail }
+export { register, checkUniqueLogin, checkUniqueEmail, sendMessageSupportEmail }
