@@ -14,6 +14,10 @@ export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleE
         handleOpenPopupDonat();
     }
 
+    const handleClickDonatPage = () => {
+        navigate('/donat')
+    }
+
     const handleClickOpenPopupQR = () => {
         handleExitPopupDonat();
         handleOpenPopupQR()
@@ -29,9 +33,12 @@ export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleE
                     <li className="header__item" onClick={handleClickFeedbackPage}>
                         Обратная связь
                     </li>
-                    <li className="header__item" onClick={handleClickOpenPopupDonat}>
+                    <li className="header__item" onClick={handleClickDonatPage}>
                         Донат
                     </li>
+      {/*              <li className="header__item" onClick={handleClickOpenPopupDonat}>
+                        <a className="header__link" href='https://pay.cloudtips.ru/p/b7d425cd' target='_blank'>Донат</a>
+                    </li>*/}
                     <li className="header__item" onClick={handleClickOpenPopupQR}>
                         QR-код
                     </li>

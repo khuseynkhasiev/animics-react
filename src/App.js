@@ -10,6 +10,7 @@ import PasswordFinishPage from "./pages/registerFinishPage/RegisterFinishPage";
 import FeedbackPage from "./pages/feedbackPage/FeedbackPage";
 import * as api from "./utils/api";
 import {useState} from "react";
+import DonatPage from "./pages/donatPage/DonatPage";
 
 function App() {
 /*    const [registerPopupText, setRegisterPopupText] = useState(' ')
@@ -74,6 +75,7 @@ function handleRegister(user) {
           <Route path='/register-password' element={<PasswordPage />}/>
           <Route path='/register-finish' element={<PasswordFinishPage/>}/>
           <Route path='/feedback' element={<FeedbackPage/>}/>
+          <Route path='/donat' element={<DonatPage/>}/>
       </Routes>
   );
 }
