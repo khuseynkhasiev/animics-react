@@ -73,8 +73,7 @@ function handleRegister(user) {
 
     return (
       <Routes>
-          <Route path='/registration/oauth' element={<Empty />}/>
-          <Route path='/' element={<MainPage />}/>
+          <Route path='/registration/oauth/:social/:state' element={<RegisterSocialPage/>} />          <Route path='/' element={<MainPage />}/>
           <Route path='/register' element={<RegisterPage />}/>
           <Route path='/register-password' element={<PasswordPage />}/>
           <Route path='/register-finish' element={<PasswordFinishPage/>}/>
