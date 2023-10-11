@@ -12,6 +12,7 @@ import * as api from "./utils/api";
 import {useState} from "react";
 import DonatPage from "./pages/donatPage/DonatPage";
 import RegisterSocialPage from "./pages/registerSocialPage/RegisterSocialPage";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
 /*    const [registerPopupText, setRegisterPopupText] = useState(' ')
@@ -71,14 +72,13 @@ function handleRegister(user) {
 
     return (
       <Routes>
+          <Route path='/registration/oauth' element={<RegisterSocialPage/>}/>
           <Route path='/' element={<MainPage />}/>
           <Route path='/register' element={<RegisterPage />}/>
           <Route path='/register-password' element={<PasswordPage />}/>
           <Route path='/register-finish' element={<PasswordFinishPage/>}/>
           <Route path='/feedback' element={<FeedbackPage/>}/>
-          {/*<Route path='/donat' element={<DonatPage/>}/>*/}
-
-          <Route path='/registration/:type/:id' element={<RegisterSocialPage/>}/>
+          <Route path='*' element={<NotFound/>}/>
       </Routes>
   );
 }
