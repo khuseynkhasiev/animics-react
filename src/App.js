@@ -13,6 +13,7 @@ import {useState} from "react";
 import DonatPage from "./pages/donatPage/DonatPage";
 import RegisterSocialPage from "./pages/registerSocialPage/RegisterSocialPage";
 import NotFound from "./pages/notFound/NotFound";
+import Empty from "./pages/EmptyPage/Empty";
 
 function App() {
 /*    const [registerPopupText, setRegisterPopupText] = useState(' ')
@@ -72,7 +73,7 @@ function handleRegister(user) {
 
     return (
       <Routes>
-          <Route path='/registration/oauth' element={<RegisterSocialPage/>}/>
+          <Route path='/registration/oauth' element={<Empty />}/>
           <Route path='/' element={<MainPage />}/>
           <Route path='/register' element={<RegisterPage />}/>
           <Route path='/register-password' element={<PasswordPage />}/>
