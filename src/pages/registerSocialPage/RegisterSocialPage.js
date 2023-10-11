@@ -1,12 +1,16 @@
-import './registerPage.scss';
+import './registerSocialPage.scss';
 import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
 import * as api from "../../utils/api";
 import LoaderRegister from "../../components/loaderRegister/LoaderRegister";
 import PopupRegister from "../../components/popupRegister/PopupRegister";
+import { useParams } from 'react-router-dom';
 
+export default function RegisterSocialPage() {
+    const { type, id } = useParams();
+    console.log(type);
+    console.log(id);
 
-export default function RegisterPage() {
     const navigate = useNavigate();
     const [onLoader, setOnLoader] = useState(false);
     const [isCheckLogin, setIsCheckLogin] = useState(false);
@@ -165,6 +169,7 @@ export default function RegisterPage() {
                                     </div>
                                     <div className='registerPage__footer'></div>
                                 </form>
+{/*
                                 <div className='registerPage__speedReg'>
                                     <h2 className='registerPage__title registerPage__title_left'>Быстрая регистрация<br/> через сервисы</h2>
                                     <ul className='registerPage__list'>
@@ -182,6 +187,7 @@ export default function RegisterPage() {
                                         </li>
                                     </ul>
                                 </div>
+*/}
                             </div>
                             <div className='registerPage__mainBack' onClick={handleMainPageClick}>
                                 <div className='registerPage__mainBackIcon'></div>

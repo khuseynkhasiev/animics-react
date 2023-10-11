@@ -6,6 +6,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import backgorunOneImage from "../../image/main-bg-two.gif";
 import backgorunTwoImage from "../../image/main-bg-one.gif";
+import DonatPage from "../donatPage/DonatPage";
 export default function MainPage() {
     const [popupQrActive, setPopupQrActive] = useState(false);
     const [popupDonatActive, setPopupDonatActive] = useState(false);
@@ -13,29 +14,17 @@ export default function MainPage() {
 
     const handleOpenPopupQR = () => {
         setPopupQrActive(true);
-/*
-        disableVerticalScroll()
-*/
     }
     const handleExitPopupQR = () => {
         setPopupQrActive(false);
-/*
-        enableVerticalScroll()
-*/
     }
 
     const handleOpenPopupDonat = () => {
         setPopupDonatActive(true);
-/*
-        disableVerticalScroll()
-*/
     }
 
     const handleExitPopupDonat = () => {
         setPopupDonatActive(false);
-/*
-        enableVerticalScroll()
-*/
     }
 
     useEffect(() => {
@@ -81,9 +70,10 @@ export default function MainPage() {
                         </main>
                         <Footer />
                     <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
+                    <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
                 </div>
             ) : (
-                <LoaderMain />
+                <LoaderMain popupDonatActive={popupDonatActive} />
             )}
 {/*            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
             <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>*/}

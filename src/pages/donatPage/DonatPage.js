@@ -6,14 +6,14 @@ import {useNavigate} from "react-router";
 import {useState} from "react";
 import iconLike from '../../image/iconLike.svg';
 import iconLikeActive from  '../../image/iconLikeActive.svg';
-export default function DonatPage(){
+export default function DonatPage({handleExitPopupDonat, popupDonatActive}){
     const navigate = useNavigate();
     const [likeIsActive, setLikeIsActive] = useState(false);
-/*    const handleClickExitPopup = e => {
+    const handleClickExitPopup = e => {
         if(e.target === e.currentTarget) {
             handleExitPopupDonat();
         }
-    }*/
+    }
 
     const handleMainPageClick = () => {
         navigate('/');
@@ -21,10 +21,10 @@ export default function DonatPage(){
     const handleActiveIconLike = () => {
         setLikeIsActive(true);
     }
-/*    return (
+    return (
         <div className={`donat ${popupDonatActive ? 'donat_active' : ''}`} onClick={handleClickExitPopup}>
             <div className='donat__container'>
-                <Watch
+{/*                <Watch
                     height="80"
                     width="80"
                     radius="48"
@@ -33,19 +33,20 @@ export default function DonatPage(){
                     wrapperStyle={{}}
                     wrapperClassName=""
                     visible={true}
-                />
-                <p className='donat__text'>Мы работаем над созданием специальной страницы для того, чтобы Вам было удобнее внести свой вклад и поддержать наш проект.</p>
-                <p className='donat__text'>Скоро она будет доступна</p>
+                />*/}
+                <a className='donat__iconLike' href='https://pay.cloudtips.ru/p/b7d425cd' target='_blank' onClick={handleActiveIconLike}></a>
+                <p className='donat__iconText'>нажми чтобы помочь</p>
+                <p className='donat__text'>Ваши  вложения не только поддерживают нас, но и являются важной составляющей нашего успеха. как вы можете помочь нам продолжать наше дело.</p>
             </div>
         </div>
-    )*/
-    return (
+    )
+/*    return (
         <div className='donatPage'>
             <div className='donatPage__container'>
                 <div className='donatPage__infoBlock'>
                     <a className='donatPage__likeLink' href='https://pay.cloudtips.ru/p/b7d425cd' target='_blank' onClick={handleActiveIconLike}>
                         <div>
-                            <div className='donatPage__iconLike' style={{ backgroundImage: likeIsActive ? `url(${iconLikeActive})` : `url(${iconLike})`}}></div>
+                            <div className='donatPage__iconLike'></div>
                             <p className='donatPage__iconText'>нажми чтобы помочь</p>
                         </div>
                     </a>
@@ -70,5 +71,5 @@ export default function DonatPage(){
                 </div>
             </div>
         </div>
-    );
+    );*/
 }

@@ -11,6 +11,7 @@ import FeedbackPage from "./pages/feedbackPage/FeedbackPage";
 import * as api from "./utils/api";
 import {useState} from "react";
 import DonatPage from "./pages/donatPage/DonatPage";
+import RegisterSocialPage from "./pages/registerSocialPage/RegisterSocialPage";
 
 function App() {
 /*    const [registerPopupText, setRegisterPopupText] = useState(' ')
@@ -75,7 +76,9 @@ function handleRegister(user) {
           <Route path='/register-password' element={<PasswordPage />}/>
           <Route path='/register-finish' element={<PasswordFinishPage/>}/>
           <Route path='/feedback' element={<FeedbackPage/>}/>
-          <Route path='/donat' element={<DonatPage/>}/>
+          {/*<Route path='/donat' element={<DonatPage/>}/>*/}
+
+          <Route path='/registration/:type/:id' element={<RegisterSocialPage/>}/>
       </Routes>
   );
 }

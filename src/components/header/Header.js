@@ -33,7 +33,7 @@ export default function Header({handleOpenPopupQR, handleOpenPopupDonat, handleE
                     <li className="header__item" onClick={handleClickFeedbackPage}>
                         Обратная связь
                     </li>
-                    <li className="header__item" onClick={handleClickDonatPage}>
+                    <li className="header__item" onClick={handleClickOpenPopupDonat}>
                         Донат
                     </li>
       {/*              <li className="header__item" onClick={handleClickOpenPopupDonat}>
