@@ -1,9 +1,9 @@
-import './registerFinishPage.scss';
+import './registerSocialFinishPage.scss';
 import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
 import PopupRegister from "../../components/popupRegister/PopupRegister";
 import * as api from "../../utils/api";
-export default function RegisterFinishPage() {
+export default function RegisterSocialFinishPage() {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() - 14;
     const currentMonth = currentDate.getMonth() + 1;
@@ -35,13 +35,14 @@ export default function RegisterFinishPage() {
     }
 
     function handleRegister(user) {
-        return api.registerSocial(user)
+        return api.register(user)
             .then((data) => {
                 // Обработка успешного ответа сервера
                 handleRegisterPopupOpen();
                 setRegisterPopupMainNavigate(true)
                 setRegisterPopupIsError(false);
                 console.log(data.message);
+                console.log(data);
                 setRegisterPopupText('Для завершения регистрации Вам необходимо подтвердить электронный адрес. Письмо мы отправили, ожидайте.')
             })
             .catch((err) => {
@@ -133,7 +134,9 @@ export default function RegisterFinishPage() {
                 addValueRegUser();
                 const user = JSON.parse(localStorage.getItem('RegUser'));
                 handleRegister(user);
+                /*navigate('/');*/
                 setErrorTextActive(false);
+                /*localStorage.removeItem('RegUser');*/
             }
         } else {
             setErrorTextActive(true);

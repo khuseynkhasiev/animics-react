@@ -7,10 +7,9 @@ import PopupRegister from "../../components/popupRegister/PopupRegister";
 import { useParams } from 'react-router-dom';
 
 export default function RegisterSocialPage() {
-    const { type, id } = useParams();
-    console.log(type);
-    console.log(id);
-
+    const { social, state } = useParams();
+    console.log('Social:', social);
+    console.log('State:', state);
     const navigate = useNavigate();
     const [onLoader, setOnLoader] = useState(false);
     const [isCheckLogin, setIsCheckLogin] = useState(false);
@@ -24,10 +23,10 @@ export default function RegisterSocialPage() {
         password_confirmation: '',
         consent: false,
         agreement: false,
+        uuid: state
     });
 
     const [registerPopupText, setRegisterPopupText] = useState(' ')
-    /*const [registerPopupIsError, setRegisterPopupIsError] = useState(false);*/
     const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
 
     useEffect(() => {
@@ -39,7 +38,7 @@ export default function RegisterSocialPage() {
 
     const handleNextPageClick = (isLogin = false, isEmail = false) => {
         if(isLogin === false && isEmail === false){
-            navigate('/register-password');
+            navigate('/register-social-password');
         }
     }
 
@@ -88,9 +87,6 @@ export default function RegisterSocialPage() {
 
     return (
         <div className='registerPage'>
-{/*
-            <div className='registerPage__container'>
-*/}
                 {onLoader
                     ?
                     <LoaderRegister />
@@ -169,25 +165,6 @@ export default function RegisterSocialPage() {
                                     </div>
                                     <div className='registerPage__footer'></div>
                                 </form>
-{/*
-                                <div className='registerPage__speedReg'>
-                                    <h2 className='registerPage__title registerPage__title_left'>Быстрая регистрация<br/> через сервисы</h2>
-                                    <ul className='registerPage__list'>
-                                        <li className='registerPage__item'>
-                                            <div className='registerPage__iconGoogle'></div>
-                                            <a className='registerPage__linkText' href='https://animics.ru/api/oauth/google/redirect'>присоединиться через Google</a>
-                                        </li>
-                                        <li className='registerPage__item'>
-                                            <div className='registerPage__iconVk'></div>
-                                            <a className='registerPage__linkText' href='https://animics.ru/api/oauth/vkontakte/redirect'>присоединиться через ВКонтаке</a>
-                                        </li>
-                                        <li className='registerPage__item'>
-                                            <div className='registerPage__iconYandex'></div>
-                                            <a className='registerPage__linkText' href='https://animics.ru/api/oauth/yandex/redirect'>присоединиться через Яндекс</a>
-                                        </li>
-                                    </ul>
-                                </div>
-*/}
                             </div>
                             <div className='registerPage__mainBack' onClick={handleMainPageClick}>
                                 <div className='registerPage__mainBackIcon'></div>
@@ -196,9 +173,6 @@ export default function RegisterSocialPage() {
                         </div>
                     </>
                 }
-{/*
-            </div>
-*/}
         </div>
     );
 }

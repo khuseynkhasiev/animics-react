@@ -65,5 +65,37 @@ const register = ({
     })
         .then((res) => res.ok ? res.json() : Promise.reject(res));
 }
+const registerSocial = ({
+                      agreement,
+                      consent,
+                      email,
+                      login,
+                      name,
+                      surname,
+                      password,
+                      password_confirmation,
+                      date,
+                      uuid
+                  }) => {
+    return fetch(`${BASE_URL}/v1/oauth/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            agreement,
+            consent,
+            email,
+            login,
+            name,
+            surname,
+            password,
+            password_confirmation,
+            date,
+            uuid
+        })
+    })
+        .then((res) => res.ok ? res.json() : Promise.reject(res));
+}
 
-export { register, checkUniqueLogin, checkUniqueEmail, sendMessageSupportEmail }
+export { register, checkUniqueLogin, checkUniqueEmail, sendMessageSupportEmail, registerSocial }
