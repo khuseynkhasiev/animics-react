@@ -74,7 +74,7 @@ export default function PasswordSocialPage() {
                     <div className="passwordPage__passwordContainer">
                         <input
                             className='passwordPage__input'
-                            type={showPassword ? "text" : "password"}
+                            type={showRepeatPassword ? "password" : "text"}
                             id='passwordPage__password'
                             name='password'
                             placeholder='пароль'
@@ -84,13 +84,13 @@ export default function PasswordSocialPage() {
                             onChange={handleInputPasswordValue}
                             required
                         />
-                        <a href="#" className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></a>
+                        <div className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></div>
                     </div>
                     <p className='passwordPage__titleText'>Повторите введенный пароль</p>
                     <div className="passwordPage__passwordContainer">
                         <input
                             className='passwordPage__input'
-                            type={showRepeatPassword ? "text" : "password"}
+                            type={showRepeatPassword ? "password" : "text"}
                             id='passwordPage__repeatPassword'
                             name='repeat-password'
                             placeholder='пароль'
@@ -100,7 +100,7 @@ export default function PasswordSocialPage() {
                             onChange={handleInputPasswordRepeatValue}
                             required
                         />
-                        <a href="#" className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></a>
+                        <div className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></div>
                     </div>
                     {activeError ?
                         <p className='passwordPage__subtext '>Пароль должен быть не меньше 8 символов, содержать символ верхнего и нижнего регистра</p>

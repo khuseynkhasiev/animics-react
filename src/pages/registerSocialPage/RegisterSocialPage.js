@@ -8,8 +8,6 @@ import { useParams } from 'react-router-dom';
 
 export default function RegisterSocialPage() {
     const { social, state } = useParams();
-    console.log('Social:', social);
-    console.log('State:', state);
     const navigate = useNavigate();
     const [onLoader, setOnLoader] = useState(false);
     const [isCheckLogin, setIsCheckLogin] = useState(false);

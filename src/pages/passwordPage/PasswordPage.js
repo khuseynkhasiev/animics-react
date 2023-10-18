@@ -12,8 +12,8 @@ export default function PasswordPage() {
     const errorMessage = document.querySelector('.passwordPage__subtext');
     const [activeError, setActiveError ] = useState(true)
 
-    const [showPassword, setShowPassword] = useState(false);
-    const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(true);
+    const [showRepeatPassword, setShowRepeatPassword] = useState(true);
 
     const handleInputPasswordValue = (e) => {
         setPassword(e.target.value);
@@ -72,7 +72,7 @@ export default function PasswordPage() {
                     <div className="passwordPage__passwordContainer">
                         <input
                             className='passwordPage__input'
-                            type={showPassword ? "text" : "password"}
+                            type={showPassword ? "password" : "text"}
                             id='passwordPage__password'
                             name='password'
                             placeholder='пароль'
@@ -82,13 +82,13 @@ export default function PasswordPage() {
                             onChange={handleInputPasswordValue}
                             required
                         />
-                        <a href="#" className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></a>
+                        <div className={showPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={togglePasswordVisibility}></div>
                     </div>
                     <p className='passwordPage__titleText'>Повторите введенный пароль</p>
                     <div className="passwordPage__passwordContainer">
                         <input
                             className='passwordPage__input'
-                            type={showRepeatPassword ? "text" : "password"}
+                            type={showRepeatPassword ? "password" : "text"}
                             id='passwordPage__repeatPassword'
                             name='repeat-password'
                             placeholder='пароль'
@@ -98,7 +98,7 @@ export default function PasswordPage() {
                             onChange={handleInputPasswordRepeatValue}
                             required
                         />
-                        <a href="#" className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></a>
+                        <div className={showRepeatPassword ? "passwordPage__password-control_view" : "passwordPage__password-control"} onClick={toggleRepeatPasswordVisibility}></div>
                     </div>
                     {activeError ?
                         <p className='passwordPage__subtext '>Пароль должен быть не меньше 8 символов, содержать символ верхнего и нижнего регистра</p>

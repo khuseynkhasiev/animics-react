@@ -18,10 +18,10 @@ export default function RegisterSocialFinishPage() {
     const [errorTextDateActive, setErrorTextDateActive] = useState(false);
 
 
-    const [registerPopupText, setRegisterPopupText] = useState(' ')
+    const [registerPopupText, setRegisterPopupText] = useState(' ');
     const [registerPopupIsError, setRegisterPopupIsError] = useState(false);
     const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
-    const [registerPopupMainNavigate, setRegisterPopupMainNavigate] = useState(true)
+    const [registerPopupMainNavigate, setRegisterPopupMainNavigate] = useState(true);
 
     function handleRegisterPopupOpen(){
         setRegisterPopupIsOpen(true);

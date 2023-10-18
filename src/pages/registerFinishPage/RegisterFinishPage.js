@@ -3,6 +3,7 @@ import {useNavigate} from "react-router";
 import {useEffect, useState} from "react";
 import PopupRegister from "../../components/popupRegister/PopupRegister";
 import * as api from "../../utils/api";
+import {register} from "../../utils/api";
 export default function RegisterFinishPage() {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() - 14;
@@ -35,7 +36,7 @@ export default function RegisterFinishPage() {
     }
 
     function handleRegister(user) {
-        return api.registerSocial(user)
+        return api.register(user)
             .then((data) => {
                 // Обработка успешного ответа сервера
                 handleRegisterPopupOpen();
@@ -106,7 +107,7 @@ export default function RegisterFinishPage() {
         }
     }, [date])
     const handleBackPageClick = () => {
-        navigate('/register-social-password');
+        navigate('/register-password');
     }
 
     const handleChangeValueInputDate = (e) => {
