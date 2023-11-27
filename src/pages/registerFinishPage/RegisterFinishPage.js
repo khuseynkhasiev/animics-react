@@ -4,6 +4,9 @@ import {useEffect, useState} from "react";
 import PopupRegister from "../../components/popupRegister/PopupRegister";
 import * as api from "../../utils/api";
 import {register} from "../../utils/api";
+import LoaderMain from "../../components/loaderMain/LoaderMain";
+import registerImage from "../../image/register-bg.jpg";
+import qrBg from "../../image/qrBg.png";
 export default function RegisterFinishPage() {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear() - 14;
@@ -22,7 +25,20 @@ export default function RegisterFinishPage() {
     const [registerPopupText, setRegisterPopupText] = useState(' ')
     const [registerPopupIsError, setRegisterPopupIsError] = useState(false);
     const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
-    const [registerPopupMainNavigate, setRegisterPopupMainNavigate] = useState(true)
+    const [registerPopupMainNavigate, setRegisterPopupMainNavigate] = useState(true);
+    const [imagesLoaded, setImagesLoaded] = useState(true);
+
+    useEffect(() => {
+        const register = new Image();
+        register.src = registerImage;
+        register.onload = () => {
+            const qr = new Image();
+            qr.src = qrBg;
+            qr.onload = () => {
+                setImagesLoaded(false);
+            }
+        };
+    }, []);
 
     function handleRegisterPopupOpen(){
         setRegisterPopupIsOpen(true);
@@ -78,8 +94,6 @@ export default function RegisterFinishPage() {
                 }
             });
     }
-
-
 
     useEffect(() => {
         const year = +date.slice(0, 4);
@@ -142,73 +156,81 @@ export default function RegisterFinishPage() {
 
     }
     return (
-        <div className='registerFinishPage'>
-            <PopupRegister
-                registerPopupText={registerPopupText}
-                handleRegisterPopupOpen={handleRegisterPopupOpen}
-                handleRegisterPopupExit={handleRegisterPopupExit}
-                registerPopupIsOpen={registerPopupIsOpen}
-                registerPopupIsError={registerPopupIsError}/>
-            <div className='registerFinishPage__formContainer'>
-                <div className='registerFinishPage__content'>
-                    <h2 className='registerFinishPage__title'>Финиш!</h2>
-                    <p className='registerFinishPage__subtitle'>Вы это сделали!</p>
-                    <div className="registerFinishPage__flexBox">
-                        <form className='registerFinishPage__form' id='registerFinishPage' action="" method="POST" onSubmit={handleSubmitForm}>
-                            <p className='registerFinishPage__titleText'>Когда Вы родились?</p>
-                            <input
-                                className='registerFinishPage__input'
-                                type="date"
-                                id='registerFinishPage__date'
-                                name='date'
-                                placeholder='дд.мм.гггг.'
-                                onChange={handleChangeValueInputDate}
-                                required
-                            />
-                            <div className="registerFinishPage__inputContainer">
-                                <input
-                                    className="registerFinishPage__inputCheckbox"
-                                    type="checkbox"
-                                    name="agreement"
-                                    id='agreement'
-                                    onChange={handleChangeValueInputAgreement}
-                                />
-                                <label className='registerFinishPage__labelCheckbox' htmlFor='agreement'>какое то очень длинное пользовательсоке соглашение о том что передаются и обрабатываются персональные данные</label>
+        <>
+            {
+                imagesLoaded ? (
+                    <LoaderMain />
+                ) : (
+                    <div className='registerFinishPage'>
+                        <PopupRegister
+                            registerPopupText={registerPopupText}
+                            handleRegisterPopupOpen={handleRegisterPopupOpen}
+                            handleRegisterPopupExit={handleRegisterPopupExit}
+                            registerPopupIsOpen={registerPopupIsOpen}
+                            registerPopupIsError={registerPopupIsError}/>
+                        <div className='registerFinishPage__formContainer'>
+                            <div className='registerFinishPage__content'>
+                                <h2 className='registerFinishPage__title'>Финиш!</h2>
+                                <p className='registerFinishPage__subtitle'>Вы это сделали!</p>
+                                <div className="registerFinishPage__flexBox">
+                                    <form className='registerFinishPage__form' id='registerFinishPage' action="" method="POST" onSubmit={handleSubmitForm}>
+                                        <p className='registerFinishPage__titleText'>Когда Вы родились?</p>
+                                        <input
+                                            className='registerFinishPage__input'
+                                            type="date"
+                                            id='registerFinishPage__date'
+                                            name='date'
+                                            placeholder='дд.мм.гггг.'
+                                            onChange={handleChangeValueInputDate}
+                                            required
+                                        />
+                                        <div className="registerFinishPage__inputContainer">
+                                            <input
+                                                className="registerFinishPage__inputCheckbox"
+                                                type="checkbox"
+                                                name="agreement"
+                                                id='agreement'
+                                                onChange={handleChangeValueInputAgreement}
+                                            />
+                                            <label className='registerFinishPage__labelCheckbox' htmlFor='agreement'>пользовательское соглашение на обработку персональных данных данных</label>
+                                        </div>
+                                        <div className="registerFinishPage__inputContainer">
+                                            <input
+                                                className="registerFinishPage__inputCheckbox"
+                                                type="checkbox"
+                                                name="consent"
+                                                id='consent'
+                                                onChange={handleChangeValueInputConsent}
+                                            />
+                                            <label className='registerFinishPage__labelCheckbox' htmlFor='consent'>даю согласие на то, чтобы получать оповещения и рассылки</label>
+                                        </div>
+                                        {errorTextActive && <p className='registerFinishPage__errorText'>Необходимо принять пользовательское соглашение!</p>}
+                                        {errorTextDateActive && <p className='registerFinishPage__errorText'>Вам должно быть 14+ лет</p>}
+                                    </form>
+                                    <div className="registerFinishPage__qrBlock">
+                                        <div className='registerFinishPage__qrBlockBg'></div>
+                                        <p className="registerFinishPage__qrText">Осталось скачать наше приложение...</p>
+                                        <p className="registerFinishPage__qrSubtext">погрузись в другую реальность...</p>
+                                    </div>
+                                </div>
+                                <div className='registerFinishPage__btnContainer'>
+                                    <button
+                                        className='registerFinishPage__submit'
+                                        type='button'
+                                        onClick={handleBackPageClick}
+                                    >Назад</button>
+                                    <button
+                                        className='registerFinishPage__submit'
+                                        type='submit'
+                                        form='registerFinishPage'
+                                    >Завершить</button>
+                                </div>
+                                <div className='registerFinishPage__footer'></div>
                             </div>
-                            <div className="registerFinishPage__inputContainer">
-                                <input
-                                    className="registerFinishPage__inputCheckbox"
-                                    type="checkbox"
-                                    name="consent"
-                                    id='consent'
-                                    onChange={handleChangeValueInputConsent}
-                                />
-                                <label className='registerFinishPage__labelCheckbox' htmlFor='consent'>даю согласие на то чтобы получать оповещения и рссылки на почту/телефон</label>
-                            </div>
-                            {errorTextActive && <p className='registerFinishPage__errorText'>Необходимо принять пользовательское соглашение!</p>}
-                            {errorTextDateActive && <p className='registerFinishPage__errorText'>Вам должно быть 14+ лет</p>}
-                        </form>
-                        <div className="registerFinishPage__qrBlock">
-                            <div className='registerFinishPage__qrBlockBg'></div>
-                            <p className="registerFinishPage__qrText">Осталось скачать наше приложение...</p>
-                            <p className="registerFinishPage__qrSubtext">погрузись в другую реальность...</p>
                         </div>
                     </div>
-                    <div className='registerFinishPage__btnContainer'>
-                        <button
-                            className='registerFinishPage__submit'
-                            type='button'
-                            onClick={handleBackPageClick}
-                        >Назад</button>
-                        <button
-                            className='registerFinishPage__submit'
-                            type='submit'
-                            form='registerFinishPage'
-                        >Завершить</button>
-                    </div>
-                    <div className='registerFinishPage__footer'></div>
-                </div>
-            </div>
-        </div>
+                )
+            }
+        </>
     );
 }

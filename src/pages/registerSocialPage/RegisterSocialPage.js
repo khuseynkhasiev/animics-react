@@ -5,6 +5,8 @@ import * as api from "../../utils/api";
 import LoaderRegister from "../../components/loaderRegister/LoaderRegister";
 import PopupRegister from "../../components/popupRegister/PopupRegister";
 import { useParams } from 'react-router-dom';
+import registerSocialImage from "../../image/register-bg.jpg";
+
 
 export default function RegisterSocialPage() {
     const { social, state } = useParams();
@@ -12,6 +14,9 @@ export default function RegisterSocialPage() {
     const [onLoader, setOnLoader] = useState(false);
     const [isCheckLogin, setIsCheckLogin] = useState(false);
     const [isCheckEmail, setIsCheckEmail] = useState(false)
+
+    const [imagesLoaded, setImagesLoaded] = useState(true);
+
     const [user, setUser] = useState({
         name: '',
         surname: '',
@@ -26,6 +31,14 @@ export default function RegisterSocialPage() {
 
     const [registerPopupText, setRegisterPopupText] = useState(' ')
     const [registerPopupIsOpen, setRegisterPopupIsOpen] = useState(false);
+
+    useEffect(() => {
+        const register = new Image();
+        register.src = registerSocialImage;
+        register.onload = () => {
+            setImagesLoaded(false);
+        };
+    }, []);
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('RegUser'))
@@ -84,7 +97,7 @@ export default function RegisterSocialPage() {
     }
 
     return (
-        <div className='registerPage'>
+        <div className='registerSocialPage'>
                 {onLoader
                     ?
                     <LoaderRegister />
@@ -96,77 +109,77 @@ export default function RegisterSocialPage() {
                             handleRegisterPopupExit={handleRegisterPopupExit}
                             registerPopupIsOpen={registerPopupIsOpen}
                             registerPopupIsError={true}/>
-                        <div className='registerPage__formContainer'>
-                            <div className='registerPage__register'>
-                                <form className='registerPage__form' onSubmit={handleSubmitForm} action="" method="POST" id='registerForm'>
-                                    <h2 className='registerPage__title'>Регистрация учетной записи</h2>
-                                    <p className='registerPage__subtitle'>Уже есть учетная запись? Тогда переходи сюда >>></p>
-                                    <div className='registerPage__blockName'>
+                        <div className='registerSocialPage__formContainer'>
+                            <div className='registerSocialPage__register'>
+                                <form className='registerSocialPage__form' onSubmit={handleSubmitForm} action="" method="POST" id='registerForm'>
+                                    <h2 className='registerSocialPage__title'>Регистрация учетной записи</h2>
+                                    <p className='registerSocialPage__subtitle'>Уже есть учетная запись? Тогда переходи сюда >>></p>
+                                    <div className='registerSocialPage__blockName'>
                                         <input
-                                            className='registerPage__input'
+                                            className='registerSocialPage__input'
                                             onChange={handleChangeInput}
                                             type="text"
                                             name="name"
-                                            id='registerPage__name'
+                                            id='registerSocialPage__name'
                                             placeholder='Имя...'
                                             value={user.name}
                                             required
                                         />
                                         <input
-                                            className='registerPage__input'
+                                            className='registerSocialPage__input'
                                             onChange={handleChangeInput}
                                             type="text"
                                             name="surname"
-                                            id='registerPage__surname'
+                                            id='registerSocialPage__surname'
                                             placeholder='Фамилия...'
                                             value={user.surname}
                                             required
                                         />
                                     </div>
                                     {isCheckLogin ?
-                                        <p style={{color: "red"}} className='registerPage__titleText'>Такой логин уже существует</p>
+                                        <p style={{color: "red"}} className='registerSocialPage__titleText'>Такой логин уже существует</p>
                                         :
-                                        <p className='registerPage__titleText'>Как к Вам обращаться?</p>
+                                        <p className='registerSocialPage__titleText'>Как к Вам обращаться?</p>
                                     }
                                     <input
-                                        className='registerPage__input'
+                                        className='registerSocialPage__input'
                                         onChange={handleChangeInput}
                                         type="text"
                                         name="login"
-                                        id='registerPage__login'
+                                        id='registerSocialPage__login'
                                         placeholder='логин'
                                         value={user.login}
                                         required
                                     />
                                     {isCheckEmail ?
-                                        <p style={{color: "red"}} className='registerPage__titleText'>Такая почта уже существует</p>
+                                        <p style={{color: "red"}} className='registerSocialPage__titleText'>Такая почта уже существует</p>
                                         :
-                                        <p className='registerPage__titleText'>Почта</p>
+                                        <p className='registerSocialPage__titleText'>Почта</p>
                                     }
                                     <input
-                                        className='registerPage__input'
+                                        className='registerSocialPage__input'
                                         onChange={handleChangeInput}
                                         type="email"
                                         name="email"
-                                        id='registerPage__email'
+                                        id='registerSocialPage__email'
                                         placeholder='email'
                                         value={user.email}
                                         required
                                     />
-                                    <div className='registerPage__btnContainer'>
+                                    <div className='registerSocialPage__btnContainer'>
                                         <button
-                                            className='registerPage__submit'
+                                            className='registerSocialPage__submit'
                                             type='submit'
                                             form='registerForm'
                                         >Далее
                                         </button>
                                     </div>
-                                    <div className='registerPage__footer'></div>
+                                    <div className='registerSocialPage__footer'></div>
                                 </form>
                             </div>
-                            <div className='registerPage__mainBack' onClick={handleMainPageClick}>
-                                <div className='registerPage__mainBackIcon'></div>
-                                <p className='registerPage__mainBackText'>в начало</p>
+                            <div className='registerSocialPage__mainBack' onClick={handleMainPageClick}>
+                                <div className='registerSocialPage__mainBackIcon'></div>
+                                <p className='registerSocialPage__mainBackText'>в начало</p>
                             </div>
                         </div>
                     </>

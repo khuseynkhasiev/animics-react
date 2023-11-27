@@ -1,6 +1,5 @@
 import {Triangle} from "react-loader-spinner";
 import './loaderMain.scss';
-import Header from "../header/Header";
 export default function LoaderMain(){
     return (
         <div className='loaderMain'>

@@ -10,7 +10,7 @@ import DonatPage from "../donatPage/DonatPage";
 export default function MainPage() {
     const [popupQrActive, setPopupQrActive] = useState(false);
     const [popupDonatActive, setPopupDonatActive] = useState(false);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [imagesLoaded, setImagesLoaded] = useState(true);
 
     const handleOpenPopupQR = () => {
         setPopupQrActive(true);
@@ -34,7 +34,7 @@ export default function MainPage() {
             const image2 = new Image();
             image2.src = backgorunTwoImage;
             image2.onload = () => {
-                setImagesLoaded(true);
+                setImagesLoaded(false);
             };
         };
     }, []);
@@ -47,33 +47,33 @@ export default function MainPage() {
                 handleExitPopupDonat={handleExitPopupDonat}
                 handleExitPopupQR={handleExitPopupQR}/>
             {imagesLoaded ? (
+                <LoaderMain />
+            ) : (
                 <div className="mainPage">
-                        <div className="mainPage__bgOne"></div>
-                        <div className="mainPage__bgTwo"></div>
-                        <div className="title">
-                            <h1 className="title__title">ТОБА</h1>
-                            <h2 className="title__subtitle">ИНТЕРАКТИРОВАННЫЙ АНИМИРОВАННЫЙ КОМИКС</h2>
-                        </div>
-                        <main className="main">
-                            <div className="main__info">
-                                <p className="main__text main__text_type_leftWidth">Представь что ты в мире,  где передовые <br/>технологии стали частью повседневной жизни...</p>
-                                <p className="main__text">Мощные компьютеры, кибернетические улучшения, виртуальная реальность и искусственный интеллект переплетаются в футуристическом сюжете, мегаполисы будущего, где небоскребы пронизаны рекламой, а улицы оживают множеством разнообразных персонажей.</p>
-                                <p className="main__text main__text_type_rigth">Этот мир полон движения, шума и неожиданных поворотов., борьба за контроль над технологическими ресурсами, конфликты между мегакорпорациями, правительствами и хакерскими<br/> группировками</p>
-                                <div className="main__textRigthBlock">
-                                    <p className="main__text main__text_type_rightWidth">...Это приводит к философским <br/> размышлениям, не так ли ?</p>
-                                </div>
-                                <div className="main__infoContainer">
-                                    <h3 className="main__infoTitle">СТАНЬ ЧАСТЬЮ ВСЕЛЕННОЙ КИБЕРПАНКА ВМЕСТЕ С <span className="main__infoTitle_type_size">ТОБА</span></h3>
-                                    <div className="main__qr"></div>
-                                </div>
+                    <div className="mainPage__bgOne"></div>
+                    <div className="mainPage__bgTwo"></div>
+                    <div className="title">
+                        <h1 className="title__title">ТОБА</h1>
+                        <h2 className="title__subtitle">ИНТЕРАКТИРОВАННЫЙ АНИМИРОВАННЫЙ КОМИКС</h2>
+                    </div>
+                    <main className="main">
+                        <div className="main__info">
+                            <p className="main__text main__text_type_leftWidth">Представь что ты в мире,  где передовые <br/>технологии стали частью повседневной жизни...</p>
+                            <p className="main__text">Мощные компьютеры, кибернетические улучшения, виртуальная реальность и искусственный интеллект переплетаются в футуристическом сюжете, мегаполисы будущего, где небоскребы пронизаны рекламой, а улицы оживают множеством разнообразных персонажей.</p>
+                            <p className="main__text main__text_type_rigth">Этот мир полон движения, шума и неожиданных поворотов., борьба за контроль над технологическими ресурсами, конфликты между мегакорпорациями, правительствами и хакерскими<br/> группировками</p>
+                            <div className="main__textRigthBlock">
+                                <p className="main__text main__text_type_rightWidth">...Это приводит к философским <br/> размышлениям, не так ли ?</p>
                             </div>
-                        </main>
-                        <Footer />
+                            <div className="main__infoContainer">
+                                <h3 className="main__infoTitle">СТАНЬ ЧАСТЬЮ ВСЕЛЕННОЙ КИБЕРПАНКА ВМЕСТЕ С <span className="main__infoTitle_type_size">ТОБА</span></h3>
+                                <div className="main__qr"></div>
+                            </div>
+                        </div>
+                    </main>
+                    <Footer />
                     <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
                     <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>
                 </div>
-            ) : (
-                <LoaderMain popupDonatActive={popupDonatActive} />
             )}
 {/*            <PopupQR popupQrActive={popupQrActive} handleExitPopupQR={handleExitPopupQR}/>
             <DonatPage popupDonatActive={popupDonatActive} handleExitPopupDonat={handleExitPopupDonat}/>*/}
