@@ -1,6 +1,6 @@
 .loaderMain{
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - 70px);
   &__container{
     position: absolute;
     left: 50%;

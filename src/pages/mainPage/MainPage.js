@@ -19,11 +19,16 @@ export default function MainPage() {
         setPopupQrActive(false);
     }
 
+    const scrollTop = () => {
+        window.scroll(0, 0)
+    }
     const handleOpenPopupDonat = () => {
+        scrollTop();
         setPopupDonatActive(true);
     }
 
     const handleExitPopupDonat = () => {
+        scrollTop();
         setPopupDonatActive(false);
     }
 
