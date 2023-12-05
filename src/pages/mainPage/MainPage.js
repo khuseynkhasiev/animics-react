@@ -4,13 +4,34 @@ import {useState, useEffect} from "react";
 import LoaderMain from "../../components/loaderMain/LoaderMain";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import backgorunOneImage from "../../image/main-bg-two.gif";
-import backgorunTwoImage from "../../image/main-bg-one.gif";
+import backgorunOneImage from "../../image/main-bg-one.gif";
+import backgorunTwoImage from "../../image/main-bg-two.gif";
+import backgorunOneJpg from "../../image/main-bg-one.jpg";
+import backgorunTwoJpg from "../../image/main-bg-two.jpg";
 import DonatPage from "../donatPage/DonatPage";
 export default function MainPage() {
     const [popupQrActive, setPopupQrActive] = useState(false);
     const [popupDonatActive, setPopupDonatActive] = useState(false);
     const [imagesLoaded, setImagesLoaded] = useState(true);
+    const [imagesGifLoaded, setImagesGifLoaded] = useState(true);
+
+    useEffect(() => {
+        const imageOne = new Image();
+        const imageTwo = new Image();
+
+        const loadImages = () => {
+            imageOne.onload = imageTwo.onload = () => {
+                setImagesGifLoaded(false);
+            }
+            imageOne.onerror = imageTwo.onerror = () => {
+                setImagesGifLoaded(false);
+            }
+
+            imageOne.src = backgorunOneImage;
+            imageTwo.src = backgorunTwoImage;
+        }
+        loadImages();
+    }, [])
 
     const handleOpenPopupQR = () => {
         setPopupQrActive(true);
@@ -34,6 +55,17 @@ export default function MainPage() {
 
     useEffect(() => {
         const image1 = new Image();
+        image1.src = backgorunOneJpg;
+        image1.onload = () => {
+            const image2 = new Image();
+            image2.src = backgorunTwoJpg;
+            image2.onload = () => {
+                setImagesLoaded(false);
+            };
+        };
+    }, []);
+/*    useEffect(() => {
+        const image1 = new Image();
         image1.src = backgorunOneImage;
         image1.onload = () => {
             const image2 = new Image();
@@ -42,7 +74,7 @@ export default function MainPage() {
                 setImagesLoaded(false);
             };
         };
-    }, []);
+    }, []);*/
 
     return (
         <>
@@ -55,8 +87,24 @@ export default function MainPage() {
                 <LoaderMain />
             ) : (
                 <div className="mainPage">
-                    <div className="mainPage__bgOne"></div>
-                    <div className="mainPage__bgTwo"></div>
+                    <div className="mainPage__bgOne" style={ imagesGifLoaded ? {
+                        backgroundImage: `url(${backgorunOneJpg})`
+                    } :
+                        {
+                            backgroundImage: `url(${backgorunOneImage})`
+                        }
+                    }>
+
+                    </div>
+                    <div className="mainPage__bgTwo" style={ imagesGifLoaded ? {
+                            backgroundImage: `url(${backgorunTwoJpg})`
+                    } :
+                        {
+                            backgroundImage: `url(${backgorunTwoImage})`
+                        }
+                    }>
+
+                    </div>
                     <div className="title">
                         <h1 className="title__title">ТОБА</h1>
                         <h2 className="title__subtitle">ИНТЕРАКТИРОВАННЫЙ АНИМИРОВАННЫЙ КОМИКС</h2>

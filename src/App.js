@@ -1,6 +1,7 @@
 import './vendor/normalize.css';
-import './App.css';
 import './vendor/fonts/font.css';
+import './App.css';
+
 import MainPage from "./pages/mainPage/MainPage";
 import {Routes, Route} from "react-router-dom";
 import RegisterPage from "./pages/registerPage/RegisterPage";
