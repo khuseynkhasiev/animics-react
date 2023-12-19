@@ -33,6 +33,8 @@ export default function MainPage() {
         loadImages();
     }, [])
 
+
+
     const handleOpenPopupQR = () => {
         setPopupQrActive(true);
     }
@@ -86,24 +88,6 @@ export default function MainPage() {
             {imagesLoaded ? (
                 <LoaderMain />
             ) : (
-/*                <div className="mainPage">
-                    <div className="mainPage__bgOne" style={ imagesGifLoaded ? {
-                        backgroundImage: `url(${backgorunOneJpg})`
-                    } :
-                        {
-                            backgroundImage: `url(${backgorunOneImage})`
-                        }
-                    }>
-
-                    </div>
-                    <div className="mainPage__bgTwo" style={ imagesGifLoaded ? {
-                            backgroundImage: `url(${backgorunTwoJpg})`
-                    } :
-                        {
-                            backgroundImage: `url(${backgorunTwoImage})`
-                        }
-                    }>
-                </div>*/
                 <div className="mainPage">
                     <div className="mainPage__bgOne" style={ imagesGifLoaded ?
                         {
@@ -116,7 +100,6 @@ export default function MainPage() {
                             backgroundSize: 'cover',
                         }
                     }>
-
                     </div>
                     <div className="mainPage__bgTwo" style={ imagesGifLoaded ? {
                             background: `linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url(${backgorunTwoJpg}) lightgray 50% no-repeat`,
