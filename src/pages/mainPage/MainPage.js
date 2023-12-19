@@ -86,7 +86,7 @@ export default function MainPage() {
             {imagesLoaded ? (
                 <LoaderMain />
             ) : (
-                <div className="mainPage">
+/*                <div className="mainPage">
                     <div className="mainPage__bgOne" style={ imagesGifLoaded ? {
                         backgroundImage: `url(${backgorunOneJpg})`
                     } :
@@ -103,7 +103,30 @@ export default function MainPage() {
                             backgroundImage: `url(${backgorunTwoImage})`
                         }
                     }>
+                </div>*/
+                <div className="mainPage">
+                    <div className="mainPage__bgOne" style={ imagesGifLoaded ?
+                        {
+                            background: `linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url(${backgorunOneJpg}) lightgray 50% no-repeat`,
+                            backgroundSize: 'cover',
+                        }
+                            :
+                        {
+                            background: `linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url(${backgorunOneImage}) lightgray 50% no-repeat`,
+                            backgroundSize: 'cover',
+                        }
+                    }>
 
+                    </div>
+                    <div className="mainPage__bgTwo" style={ imagesGifLoaded ? {
+                            background: `linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url(${backgorunTwoJpg}) lightgray 50% no-repeat`,
+                            backgroundSize: 'cover',
+                        } :
+                        {
+                            background: `linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 29.28%), url(${backgorunTwoImage}) lightgray 50% no-repeat`,
+                            backgroundSize: 'cover',
+                        }
+                    }>
                     </div>
                     <div className="title">
                         <h1 className="title__title">ТОБА</h1>
