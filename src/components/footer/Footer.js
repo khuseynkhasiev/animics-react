@@ -31,18 +31,9 @@ export default function Footer() {
                         руководитель проекта
                     </a>
                 </li>
-                <li className="footer__item">
-                    <a
-                        href="https://t.me/kami11aaaaa"
-                        className="footer__link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        дизайнер
-                    </a>
-                </li>
             </ul>
             <p className="footer__text">ТОБА, 2023, ANIMICS</p>
+            <p className="footer__text"><a className="footer__text-link" href="https://kreati.ru/" target='_blank'>Разработка сайта</a></p>
         </footer>
     );
 }
